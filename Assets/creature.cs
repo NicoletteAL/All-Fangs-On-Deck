@@ -67,14 +67,15 @@ public class creature : MonoBehaviour
         rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
     }
 
-    //public void TakeDamage(int d) => health -= d;
     public void TakeDamage(int d) 
     {
-        health -= d;
+        Debug.Log("took damage");
         if (health <= 0)
         {
             Debug.Log("You died");
             //TODO: You Died text overlay
+        } else {
+            health -= d;
         }
     }
 
