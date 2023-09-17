@@ -11,8 +11,6 @@ public class EnemyController : MonoBehaviour
             * retreat (?)
             * on death
             * take damage
-
-            ToDo: make separate scripts to handle all the points 
     */
 
     public GameObject pointA;
@@ -24,6 +22,11 @@ public class EnemyController : MonoBehaviour
     public float speed; 
     public int damage;
     public int health;
+
+    private float DMG_DELAY = 3.5f; //3 second delay before getting damaged again
+
+    //Player
+    public creature c;
 
     // Start is called before the first frame update
     void Start()
@@ -72,6 +75,33 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            c.TakeDamage(damage);
+        }
+        StartCoroutine(DamageDelay());
+    }
+
+    IEnumerator DamageDelay()
+    {
+        yield return new WaitForSeconds(DMG_DELAY);
+    }
+
+    //Triggered by the red button
+    public void TakeDamage(int d)
+    {
+        Debug.Log("enemy took damage");
+        health -= d;
+        if (health <= 0) 
+        {
+            //Destroy game object
+            Destroy(gameObject);
+            //add to score/numkills if we decide to track it
+        }
+    }
+
     //Flip Sprite
     private void Flip()
     {
@@ -87,4 +117,6 @@ public class EnemyController : MonoBehaviour
         Gizmos.DrawWireSphere(pointB.transform.position, 0.5f);
         Gizmos.DrawLine(pointA.transform.position, pointB.transform.position);
     }
+
+ 
 }
