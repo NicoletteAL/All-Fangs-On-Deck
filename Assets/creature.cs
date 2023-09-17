@@ -5,7 +5,7 @@ using UnityEngine;
 public class creature : MonoBehaviour
 {
     [Header("Config")]
-    public int healthPoints = 10;
+    public int healthPoints = 3;
     public float speed = 6.0f;
     public float jumpForce = 35f;
     public string creatureName = "Lonk";
@@ -16,6 +16,10 @@ public class creature : MonoBehaviour
     [Header("refrences")]
     SpriteRenderer sr;
     Rigidbody2D rb;
+    
+    //Temp placeholders
+    public int health;
+    public int maxHealth = 3;
 
     void Awake()
     {
@@ -28,6 +32,7 @@ public class creature : MonoBehaviour
     void Start()
     {
         Debug.Log("start called");
+        health = maxHealth;
     }
 
     // Update is called once per frame
@@ -60,7 +65,25 @@ public class creature : MonoBehaviour
     {
         // Add an upward force to the Rigidbody component
         rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
-    }   
-    
-    
+    }
+
+    //public void TakeDamage(int d) => health -= d;
+    public void TakeDamage(int d) 
+    {
+        health -= d;
+        if (health <= 0)
+        {
+            Debug.Log("You died");
+            //TODO: You Died text overlay
+        }
+    }
+
+    //If they pick up a heart or something
+    public void GainHealth(int h)
+    {
+        if (health != maxHealth)
+        {
+            health += h;
+        }
+    }
 }
