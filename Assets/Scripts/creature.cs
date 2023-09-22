@@ -57,8 +57,8 @@ public class creature : MonoBehaviour
 
     public void LaunchProjectile()
     {
-        GameObject newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
-        newProjectile.GetComponent<projectile>().LaunchProjectile(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        //GameObject newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
+        //newProjectile.GetComponent<projectile>().LaunchProjectile(Camera.main.ScreenToWorldPoint(Input.mousePosition));
     }
 
     public void Jump()
