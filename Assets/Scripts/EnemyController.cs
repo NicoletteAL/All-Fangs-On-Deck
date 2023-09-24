@@ -7,74 +7,83 @@ public class EnemyController : MonoBehaviour
     /*
         Enemy state controller
             * patrolling
-            * follow / attack
-            * retreat (?)
+            * attack by melee i guess
             * on death
-            * take damage
     */
+     private enum State {
+        Attack,
+        Die,
+        Patrol
+    }
 
     public GameObject pointA;
     public GameObject pointB;
-    private Rigidbody2D rb;
-    private Transform currentPoint;
     
+    private float DMG_DELAY = 3.5f; //3 second delay before getting damaged again
+    private Rigidbody2D rb;
+    private State state;
+    private Transform currentPoint;
+
+    public creature c;
+    
+    [Header("Enemy Stats")]
     [SerializeField] 
     public float speed; 
     public int damage;
     public int health;
 
-    private float DMG_DELAY = 3.5f; //3 second delay before getting damaged again
-
-    //Player
-    public creature c;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         currentPoint = pointB.transform;
+        state = State.Patrol;
     }
 
     // Update is called once per frame
     void Update()
-    {
-        //Patrolling State
-        Vector2 point = currentPoint.position - transform.position;
+    {   
+        //TODO: switch case for different enemy states (?)
+        switch (state)
+        {
+            default:
+            case State.Patrol:
+                Patrol();
+                break;
+            case State.Attack:
+                Attack();
+                break;
+            case State.Die:
+                OnDeath();
+                break;
+        }
 
-        if(currentPoint == pointB.transform)
-        {
-            rb.velocity = new Vector2(speed, 0);
-        }
-        else
-        {
-            rb.velocity = new Vector2(-speed,0);
-        }
+    }
+
+    /*Enemy State functions*/
+    public void Attack()
+    {
+        //Maybe for ranged enemies?
+        
+    }
+
+    public void Patrol()
+    {
+        Vector2 point = currentPoint.position - transform.position;
+        Vector2 targetVelocity = (currentPoint == pointB.transform) ? new Vector2(speed, 0) : new Vector2(-speed, 0);
+
+        rb.velocity = targetVelocity;
 
         if (Vector2.Distance(transform.position, currentPoint.position) < 0.5f)
         {
-            if (currentPoint == pointA.transform)
-            {
-                currentPoint = pointB.transform;
-            }
-            else if (currentPoint == pointB.transform)
-            {
-                currentPoint = pointA.transform;
-            }
+            currentPoint = (currentPoint == pointA.transform) ? pointB.transform : pointA.transform;
             Flip();
         }
-        //TODO: switch case for different enemy states
-
     }
 
-    //TODO: migrate code in the update function to this function
-    public void Patrol(bool isEnabled)
-    {
-        if (isEnabled == true)
-        {
 
-        }
-    }
-
+    /*Collisions*/
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
@@ -89,7 +98,7 @@ public class EnemyController : MonoBehaviour
         yield return new WaitForSeconds(DMG_DELAY);
     }
 
-    //Triggered by the red button
+    /*Health Functions*/
     public void TakeDamage(int d)
     {
         Debug.Log("enemy took damage");
@@ -102,7 +111,12 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    //Flip Sprite
+    private void OnDeath()
+    {
+        //change sprite to dead body maybe
+    }
+
+    /*Flip Sprite*/
     private void Flip()
     {
         Vector3 localScale = transform.localScale;
@@ -110,7 +124,7 @@ public class EnemyController : MonoBehaviour
         transform.localScale = localScale;
     }
 
-    //Point Visualizer
+    /*Point Visualizer*/
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(pointA.transform.position, 0.5f);

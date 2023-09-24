@@ -5,7 +5,8 @@ using UnityEngine;
 public class creature : MonoBehaviour
 {
     [Header("Config")]
-    public int healthPoints = 3;
+    public int health;
+    public int maxHealth = 3;  //TODO: change to 100 and update HealthDisplay .. % 10
     public float speed = 6.0f;
     public float jumpForce = 35f;
     public string creatureName = "Lonk";
@@ -13,14 +14,10 @@ public class creature : MonoBehaviour
     [Header("Projectiles")]
     public GameObject projectile;
 
-    [Header("refrences")]
+    [Header("References")]
     SpriteRenderer sr;
     Rigidbody2D rb;
     
-    //Temp placeholders
-    public int health;
-    public int maxHealth = 3;
-
     void Awake()
     {
         Debug.Log("awake called");
@@ -43,11 +40,18 @@ public class creature : MonoBehaviour
         
     }
 
+    /*Movement Functions*/
     public void Move(Vector3 direction)
     {
         //transform.position += direction * speed * Time.deltaTime;
         //rb.MovePosition(transform.position+(direction * speed * Time.fixedDeltaTime));
         rb.velocity = direction * speed; //if u want to push 
+    }
+
+    public void Jump()
+    {
+        // Add an upward force to the Rigidbody component
+        rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
     }
 
     public void RandomizeColor()
@@ -61,12 +65,7 @@ public class creature : MonoBehaviour
         //newProjectile.GetComponent<projectile>().LaunchProjectile(Camera.main.ScreenToWorldPoint(Input.mousePosition));
     }
 
-    public void Jump()
-    {
-        // Add an upward force to the Rigidbody component
-        rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
-    }
-
+    /*Health Functions*/
     public void TakeDamage(int d) 
     {
         Debug.Log("took damage");
@@ -79,12 +78,26 @@ public class creature : MonoBehaviour
         }
     }
 
-    //If they pick up a heart or something
     public void GainHealth(int h)
     {
+        //play sound effect
+        health += h;
+    }
+
+    /*Collisions / Triggers*/
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        GameObject collidedObject = collider.gameObject;
+
+        if (collidedObject.tag != "Item")
+            return;
+
+        //switch statement if there are more items
+
         if (health != maxHealth)
         {
-            health += h;
+            GainHealth(1); //temp value
+            Destroy(collider.gameObject);
         }
     }
 }
