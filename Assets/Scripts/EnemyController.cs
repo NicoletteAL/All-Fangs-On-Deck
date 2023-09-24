@@ -45,7 +45,7 @@ public class EnemyController : MonoBehaviour
     void Update()
     {   
         //TODO: switch case for different enemy states (?)
-        switch(state)
+        switch (state)
         {
             default:
             case State.Patrol:
