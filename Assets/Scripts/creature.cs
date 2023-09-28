@@ -10,6 +10,7 @@ public class creature : MonoBehaviour
     public float speed = 6.0f;
     public float jumpForce = 35f;
     public string creatureName = "Lonk";
+    private float DMG_DELAY = 1.5f;
 
     [Header("Projectiles")]
     public GameObject projectile;
@@ -85,6 +86,15 @@ public class creature : MonoBehaviour
     }
 
     /*Collisions / Triggers*/
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            TakeDamage(1); //temp
+            StartCoroutine(DamageDelay());
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collider)
     {
         GameObject collidedObject = collider.gameObject;
@@ -99,5 +109,10 @@ public class creature : MonoBehaviour
             GainHealth(1); //temp value
             Destroy(collider.gameObject);
         }
+    }
+
+    IEnumerator DamageDelay()
+    {
+        yield return new WaitForSeconds(DMG_DELAY);
     }
 }
