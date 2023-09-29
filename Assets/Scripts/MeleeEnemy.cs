@@ -12,13 +12,11 @@ public class MeleeEnemy : MonoBehaviour
     public BoxCollider2D boxCollider;
     public LayerMask playerLayer;
 
-    private float cooldownTimer = Mathf.Infinity;
-
     public Health playerHealth;
 
     private EnemyPatrol enemyPatrol;
 
-    // Update is called once per frame
+    public bool isAttacking = true;
 
     void Awake()
     {
@@ -27,15 +25,10 @@ public class MeleeEnemy : MonoBehaviour
     
     void Update()
     {
-        cooldownTimer += Time.deltaTime;
-
-        if (PlayerInSight())
+        if (PlayerInSight() && isAttacking)
         {  
             Debug.Log("attacking");
-            if (cooldownTimer >= attackCooldown)
-            {
-                cooldownTimer = 0;
-            }  
+            DamagePlayer();            
         }
 
         if (enemyPatrol != null)
@@ -72,10 +65,14 @@ public class MeleeEnemy : MonoBehaviour
 
     public void DamagePlayer()
     {
-        if (PlayerInSight())
-        {
-            Debug.Log("test");
-            playerHealth.TakeDamage(damage);
-        }
+        isAttacking = false;
+        playerHealth.TakeDamage(damage);
+        StartCoroutine(Delay());
+    }
+
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(attackCooldown);
+        isAttacking = true;
     }
 }

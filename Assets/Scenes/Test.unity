@@ -488,11 +488,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 100
-  emptyHeart: {fileID: 0}
-  fullHeart: {fileID: 0}
-  hearts: []
+  maxHealth: 3
+  emptyHeart: {fileID: 21300000, guid: 0d2b243554ce0e84493eb24371008777, type: 3}
+  fullHeart: {fileID: 21300000, guid: 24524bc6ea4441046b67127023542cad, type: 3}
+  hearts:
+  - {fileID: 1399205199}
+  - {fileID: 1778348105}
+  - {fileID: 1690204398}
   player: {fileID: 989010461}
+  isDamaged: 0
 --- !u!1 &1224598670
 GameObject:
   m_ObjectHideFlags: 0
@@ -2077,10 +2081,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7068902035715060544, guid: d61616772b604e242a1c9729980a93ee, type: 3}
-      propertyPath: damage
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7068902035715060544, guid: d61616772b604e242a1c9729980a93ee, type: 3}
       propertyPath: playerHealth
       value: 
       objectReference: {fileID: 989010462}
@@ -2141,7 +2141,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1760559042516706217, guid: e90885cd57ee12b45bf64bb7feb6505a, type: 3}
       propertyPath: range
-      value: 0.89
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 1760559042516706217, guid: e90885cd57ee12b45bf64bb7feb6505a, type: 3}
       propertyPath: playerHealth
