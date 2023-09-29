@@ -16,7 +16,15 @@ public class MeleeEnemy : MonoBehaviour
 
     public Health playerHealth;
 
+    private EnemyPatrol enemyPatrol;
+
     // Update is called once per frame
+
+    void Awake()
+    {
+        enemyPatrol = GetComponentInParent<EnemyPatrol>();
+    }
+    
     void Update()
     {
         cooldownTimer += Time.deltaTime;
@@ -28,7 +36,12 @@ public class MeleeEnemy : MonoBehaviour
             {
                 cooldownTimer = 0;
             }  
-        }    
+        }
+
+        if (enemyPatrol != null)
+        {
+            enemyPatrol.enabled = !PlayerInSight();
+        }  
     }
 
     public bool PlayerInSight()
