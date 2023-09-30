@@ -5,43 +5,49 @@ using UnityEngine;
 public class PlayerInputController : MonoBehaviour
 {
 
-    creature creature;
+    [Header("Movement")]
+    public float speed = 3f;
+    public float jumpAmount = 4f;
+
+    Rigidbody2D rb2d;
+    bool grounded = false;
+    public LayerMask groundLayer;
+
+    Player instance;
 
     public Character_animation_switch sw;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
-        creature = GetComponent<creature>();
+        rb2d = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.C))
+        grounded = isGrounded();
+        
+        if (Input.GetKeyDown(KeyCode.Space) && grounded)
         {
-            creature.RandomizeColor();
+            rb2d.AddForce(Vector2.up * jumpAmount, ForceMode2D.Impulse);
         }
 
-       /* if(Input.GetKeyDown(KeyCode.Q))
-        { 
-            sw.next_Animation_For_Prince("Prince_Throw");
-            creature.LaunchProjectile();
+        if (Input.GetKeyDown(KeyCode.J)) {
+            Debug.Log("Melee");
+            Player.instance.Punch();
             
         }
-      */
-
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            creature.Jump();
+        if (Input.GetKeyDown(KeyCode.K)) {
+            Debug.Log("shoot");
+            Player.instance.LaunchProjectile();
         }
-
     }
 
-    
-
-    /// // Update is called once per frame
+    // Update is called once per frame
     void FixedUpdate()
     {
+       transform.position += new Vector3(Input.GetAxisRaw("Horizontal"),0f) * Time.fixedDeltaTime * speed;
+
         if (Input.GetKeyDown(KeyCode.Q))
         {
             sw.next_Animation_For_Prince("Prince_Throw");
@@ -63,15 +69,11 @@ public class PlayerInputController : MonoBehaviour
             sw.next_Animation_For_Prince("Prince_Run");
 
         }
-
         else
         {
             sw.next_Animation_For_Prince("Standing_There");
         }
-        //if(Input.GetKey(KeyCode.Space))
-        //{
-            //creature.Jump();
-        //}
+
     }
 }
 
