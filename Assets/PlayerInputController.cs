@@ -73,7 +73,15 @@ public class PlayerInputController : MonoBehaviour
         {
             sw.next_Animation_For_Prince("Standing_There");
         }
+    }
 
+    bool isGrounded() {
+        RawcastHit2D hit = Physics2D.Raycast(rb2d.position, Vector2.down, 1f, groundLayer);
+
+        if (hit.collider != null) {
+            return true;
+        }
+        return false;
     }
 }
 
