@@ -16,6 +16,7 @@ public class Character_animation_switch : MonoBehaviour
 
     public void next_Animation_For_Prince(string moving, float v = 1)
     {
+        
         princeAnimate.speed = v;
         
         if(maintenant == moving)

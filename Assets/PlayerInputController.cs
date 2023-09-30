@@ -22,10 +22,13 @@ public class PlayerInputController : MonoBehaviour
             creature.RandomizeColor();
         }
 
-        if(Input.GetKeyDown(KeyCode.Q))
-        {
+       /* if(Input.GetKeyDown(KeyCode.Q))
+        { 
+            sw.next_Animation_For_Prince("Prince_Throw");
             creature.LaunchProjectile();
+            
         }
+      */
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
@@ -39,7 +42,14 @@ public class PlayerInputController : MonoBehaviour
     /// // Update is called once per frame
     void FixedUpdate()
     {
-        if(Input.GetKey(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            sw.next_Animation_For_Prince("Prince_Throw");
+            creature.LaunchProjectile();
+
+        }
+
+        if (Input.GetKey(KeyCode.D))
         {
             creature.Move(new Vector3(1,0,0));
             creature.transform.localScale = new Vector3(2, 2, 1);
