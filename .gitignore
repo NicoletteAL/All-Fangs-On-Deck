@@ -74,3 +74,4 @@ crashlytics-build.properties
 #Other
 [Aa]ssets/TextMesh*Pro/
 Assets/TextMesh Pro.meta
+.DS_Store
