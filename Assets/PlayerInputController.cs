@@ -29,6 +29,7 @@ public class PlayerInputController : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Space) && grounded)
         {
+            Debug.Log("jump");
             rb2d.AddForce(Vector2.up * jumpAmount, ForceMode2D.Impulse);
         }
 
@@ -51,21 +52,17 @@ public class PlayerInputController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             sw.next_Animation_For_Prince("Prince_Throw");
-            creature.LaunchProjectile();
+            //creature.LaunchProjectile();
 
         }
 
         if (Input.GetKey(KeyCode.D))
         {
-            creature.Move(new Vector3(1,0,0));
-            creature.transform.localScale = new Vector3(2, 2, 1);
             sw.next_Animation_For_Prince("Prince_Run"); 
             
 
         } else if(Input.GetKey(KeyCode.A))
         {
-            creature.Move(new Vector3(-1,0,0));
-            creature.transform.localScale = new Vector3(-2, 2, 1);
             sw.next_Animation_For_Prince("Prince_Run");
 
         }
@@ -76,11 +73,12 @@ public class PlayerInputController : MonoBehaviour
     }
 
     bool isGrounded() {
-        RawcastHit2D hit = Physics2D.Raycast(rb2d.position, Vector2.down, 1f, groundLayer);
+        RaycastHit2D hit = Physics2D.Raycast(rb2d.position, Vector2.down, 1.4f, groundLayer);
 
         if (hit.collider != null) {
             return true;
         }
+        Debug.Log("No jumping");
         return false;
     }
 }

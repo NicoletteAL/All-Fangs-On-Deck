@@ -222,10 +222,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cbc3b9df94c956409a8cc8d4c071d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 20
+  maxHealth: 20
+  speed: 6
+  jumpForce: 35
+  creatureName: Lonk
   projectile: {fileID: 5135895393532470437, guid: e15feb3630d84427a8ffd5d500d03bae, type: 3}
+  shootSpawn: {fileID: 2985562575139480109}
   melee: {fileID: 8639466989918887841, guid: 77aeb156ef9217b4cbd0495a5251cbf2, type: 3}
   meleeSpawn: {fileID: 6749503000570685054}
-  shootSpawn: {fileID: 2985562575139480109}
 --- !u!1 &6749503000570685054
 GameObject:
   m_ObjectHideFlags: 0

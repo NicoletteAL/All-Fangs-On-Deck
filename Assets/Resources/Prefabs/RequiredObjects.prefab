@@ -13,9 +13,15 @@ GameObject:
   - component: {fileID: 1582837348370707582}
   - component: {fileID: 5215905203689312388}
   - component: {fileID: 2706024422792840240}
-  - component: {fileID: 5421606791951036103}
+  - component: {fileID: 7138000555856773847}
+  - component: {fileID: 6992904752916810718}
+  - component: {fileID: 746550959653046848}
+  - component: {fileID: 2691686619327724234}
+  - component: {fileID: 427813530779617586}
+  - component: {fileID: 5748170957049879839}
+  - component: {fileID: 4145815965798013885}
   m_Layer: 0
-  m_Name: creature
+  m_Name: Engel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +38,11 @@ Transform:
   m_LocalPosition: {x: -4.21, y: -3.52, z: 0.015384674}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 8713897992347034521}
+  - {fileID: 6117234206592098423}
+  - {fileID: 8200124478988257587}
+  - {fileID: 4803745929015267599}
   m_Father: {fileID: 5576024366906129318}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -74,12 +84,12 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1569052605
+  m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 74cf8d7aab9b641d0b254fa36612c169, type: 3}
+  m_Sprite: {fileID: -1784385954, guid: 0062c3342d056394283837308b88982f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.32, y: 0.32}
@@ -100,11 +110,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec2c4c161571f4aa39c5ed57c6aedfe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 10
-  speed: 6
-  jumpForce: 5
-  creatureName: Link
-  projectile: {fileID: 5135895393532470437, guid: e15feb3630d84427a8ffd5d500d03bae, type: 3}
+  health: 0
+  maxHealth: 3
+  speed: 8
+  jumpForce: 35
+  creatureName: Engel
 --- !u!50 &5215905203689312388
 Rigidbody2D:
   serializedVersion: 4
@@ -164,20 +174,20 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.090149045, y: -0.13822854}
+  m_Offset: {x: -0.011350691, y: 0.05194038}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.3333334, y: 1.3333334}
+    oldSize: {x: 0.99509805, y: 1.4321648}
     newSize: {x: 0.32, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9158609, y: 0.93990064}
+  m_Size: {x: 0.7836765, y: 1.3202385}
   m_EdgeRadius: 0
---- !u!114 &5421606791951036103
+--- !u!114 &7138000555856773847
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -186,9 +196,155 @@ MonoBehaviour:
   m_GameObject: {fileID: 1650198869836578798}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a4415ee7247f492293b77328187f506, type: 3}
+  m_Script: {fileID: 11500000, guid: 7640ff1aa39e2194c908ba6de1fbb12a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  princeAnimate: {fileID: 0}
+  maintenant: Standing_There
+--- !u!114 &6992904752916810718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650198869836578798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69f69d61b5ea9334280bfad3e5ff23cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  jumpAmount: 4
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  sw: {fileID: 7138000555856773847}
+--- !u!114 &746550959653046848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650198869836578798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cbc3b9df94c956409a8cc8d4c071d6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  maxHealth: 3
+  speed: 6
+  jumpForce: 35
+  creatureName: Lonk
+  projectile: {fileID: 5135895393532470437, guid: e15feb3630d84427a8ffd5d500d03bae, type: 3}
+  melee: {fileID: 8639466989918887841, guid: 77aeb156ef9217b4cbd0495a5251cbf2, type: 3}
+  meleeSpawn: {fileID: 5450156337450748737}
+  shootSpawn: {fileID: 1722788261325066740}
+--- !u!114 &2691686619327724234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650198869836578798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7640ff1aa39e2194c908ba6de1fbb12a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  princeAnimate: {fileID: 427813530779617586}
+  maintenant: Standing_There
+--- !u!95 &427813530779617586
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650198869836578798}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c093a3288138efc44a053522da433b77, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5748170957049879839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650198869836578798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69f69d61b5ea9334280bfad3e5ff23cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  jumpAmount: 4
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  sw: {fileID: 2691686619327724234}
+--- !u!114 &4145815965798013885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650198869836578798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cbc3b9df94c956409a8cc8d4c071d6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  maxHealth: 3
+  speed: 6
+  jumpForce: 35
+  creatureName: Lonk
+  projectile: {fileID: 5135895393532470437, guid: e15feb3630d84427a8ffd5d500d03bae, type: 3}
+  melee: {fileID: 8639466989918887841, guid: 77aeb156ef9217b4cbd0495a5251cbf2, type: 3}
+  meleeSpawn: {fileID: 3095727936621758540}
+  shootSpawn: {fileID: 7428949156749417698}
+--- !u!1 &1722788261325066740
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6117234206592098423}
+  m_Layer: 0
+  m_Name: ThrowSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6117234206592098423
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722788261325066740}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.74, y: 0.84, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2849093428180012287}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1878183527704541736
 GameObject:
   m_ObjectHideFlags: 0
@@ -500,6 +656,99 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &3095727936621758540
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8200124478988257587}
+  m_Layer: 0
+  m_Name: MeleeHitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8200124478988257587
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3095727936621758540}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.73, y: -0.12, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2849093428180012287}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5450156337450748737
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8713897992347034521}
+  m_Layer: 0
+  m_Name: MeleeHitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8713897992347034521
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5450156337450748737}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.73, y: -0.12, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2849093428180012287}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7428949156749417698
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4803745929015267599}
+  m_Layer: 0
+  m_Name: ThrowSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4803745929015267599
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7428949156749417698}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.74, y: 0.84, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2849093428180012287}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8120436222249915535
 GameObject:
   m_ObjectHideFlags: 0

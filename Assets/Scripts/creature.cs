@@ -11,24 +11,25 @@ public class creature : MonoBehaviour
     public float jumpForce = 35f;
     public string creatureName = "Lonk";
 
-    [Header("Projectiles")]
+    /*[Header("Projectiles")]
     public GameObject projectile;
+    public GameObject shootSpawn;*/
 
-    [Header("References")]
-    SpriteRenderer sr;
-    Rigidbody2D rb;
+    //[Header("References")]
+    //Rigidbody2D rb;
     
     void Awake()
     {
-        Debug.Log("awake called");
-        sr = GetComponent<SpriteRenderer>();
-        rb = GetComponent<Rigidbody2D>();
+        //Debug.Log("awake called");
+        //rb = GetComponent<Rigidbody2D>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
         Debug.Log("start called");
+        //Debug.Log("start called");
+        health = maxHealth;
     }
 
     // Update is called once per frame
@@ -40,28 +41,22 @@ public class creature : MonoBehaviour
     }
 
     /*Movement Functions*/
-    public void Move(Vector3 direction)
+    /*public void Move(Vector3 direction)
     {
         //transform.position += direction * speed * Time.deltaTime;
         //rb.MovePosition(transform.position+(direction * speed * Time.fixedDeltaTime));
         rb.velocity = direction * speed; //if u want to push 
-    }
+    }*/
 
-    public void Jump()
+    /*public void Jump()
     {
         // Add an upward force to the Rigidbody component
         rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
-    }
+    }*/
 
-    public void RandomizeColor()
+    /*public void LaunchProjectile()
     {
-        sr.color = new Color(Random.Range(0f,1f),Random.Range(0f,1f),Random.Range(0f,1f));
-    }
-
-    public void LaunchProjectile()
-    {
-        //GameObject newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
-        //newProjectile.GetComponent<projectile>().LaunchProjectile(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-    }
+        Instantiate(projectile, new Vector3(shootSpawn.transform.position.x, shootSpawn.transform.position.y, 0f), Quaternion.identity);
+    }*/
 
 }

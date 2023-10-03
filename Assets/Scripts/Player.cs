@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : creature
 {
     public static Player instance;
     public static Player Instance { get { return instance; } }
-
     public GameObject projectile;
     public GameObject melee;
     public GameObject meleeSpawn;
