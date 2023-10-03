@@ -5833,9 +5833,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 427813530779617586, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 746550959653046848, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
       propertyPath: jumpForce
-      value: 90000
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 746550959653046848, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
       propertyPath: m_Enabled
@@ -5844,6 +5848,10 @@ PrefabInstance:
     - target: {fileID: 746550959653046848, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
       propertyPath: creatureName
       value: Engel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582837348370707582, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+      propertyPath: jumpForce
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 1582837348370707582, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
       propertyPath: m_Enabled
@@ -5905,6 +5913,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6992904752916810718, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+      propertyPath: sw
+      value: 
+      objectReference: {fileID: 4282262648926318365}
+    - target: {fileID: 6992904752916810718, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+      propertyPath: jumpAmount
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7138000555856773847, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -5940,6 +5956,17 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 427813530779617586, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
   m_PrefabInstance: {fileID: 4282262648926318351}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4282262648926318365 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7138000555856773847, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+  m_PrefabInstance: {fileID: 4282262648926318351}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7640ff1aa39e2194c908ba6de1fbb12a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4289251135425775885
 Transform:
   m_ObjectHideFlags: 0
