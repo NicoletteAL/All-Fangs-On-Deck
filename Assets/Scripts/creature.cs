@@ -29,7 +29,7 @@ public class creature : MonoBehaviour
     {
         Debug.Log("start called");
         //Debug.Log("start called");
-        health = maxHealth;
+       // health = maxHealth;
     }
 
     // Update is called once per frame

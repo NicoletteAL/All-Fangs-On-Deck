@@ -15,6 +15,9 @@ public class PlayerMovement : MonoBehaviour
 
     public LayerMask groundLayer;
 
+    public SpriteRenderer sr;
+    public Character_animation_switch sw;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +36,19 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.position += new Vector3(Input.GetAxisRaw("Horizontal"),0f) * Time.fixedDeltaTime * speed;   
+        Vector3 pos = new Vector3(Input.GetAxisRaw("Horizontal"), 0f);
+        transform.position += pos * Time.fixedDeltaTime * speed;
+
+        if (pos.x != 0)
+        {
+            //animation run
+            sw.next_Animation_For_Prince("Prince_Run");
+            Flip(pos.x > 0);
+        }
+        else 
+        {
+            sw.next_Animation_For_Prince("Standing_There");
+        }
     }
 
     bool isGrounded() {
@@ -43,6 +58,11 @@ public class PlayerMovement : MonoBehaviour
             return true;
 	    }
         return false;
+    }
+
+    private void Flip(bool b)
+    {
+        sr.flipX = b;
     }
     
 }
