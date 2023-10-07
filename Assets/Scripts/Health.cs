@@ -6,21 +6,17 @@ using UnityEngine.UI;
 public class Health : MonoBehaviour
 {
     [SerializeField]
-    public int health;
+    public int currentHealth;
     public int maxHealth;
 
     public Sprite emptyHeart;
     public Sprite fullHeart;
     public Image[] hearts; 
 
-    public Player player;
-
-    public bool isDamaged = false;
-
     // Start is called before the first frame update
     void Start()
     {
-        health = maxHealth;
+        currentHealth = maxHealth;
     }
 
     // Update is called once per frame
@@ -28,24 +24,23 @@ public class Health : MonoBehaviour
     {
         for(int i = 0; i < hearts.Length; i++)
         {
-            hearts[i].sprite = i < health ? fullHeart : emptyHeart;
+            hearts[i].sprite = i < (currentHealth / 10) ? fullHeart : emptyHeart;
             hearts[i].enabled = i < maxHealth;
         }    
     }
 
     public void GainHealth(int h)
     {
-        health += h;
+        currentHealth += h;
     }
 
     public void TakeDamage(int d)
     {
-        Debug.Log(health);
-        if (health <= 0)
+        if (currentHealth <= 0)
         {
             Debug.Log("You died");
         } else {
-            health -= d;
+            currentHealth -= d;
         }
     }
 
