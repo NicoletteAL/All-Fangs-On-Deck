@@ -29,7 +29,7 @@ public class Health : MonoBehaviour
         }    
     }
 
-    public void GainHealth(int h)
+    public virtual void GainHealth(int h)
     {
         currentHealth += h;
     }
