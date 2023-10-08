@@ -16,13 +16,12 @@ public class Enemy : MonoBehaviour
     public CircleCollider2D circleCollider2D;
 
     public bool isAttacking = false;
-    public float attackCooldown = 1.5f;
+    public float attackCooldown = 3.0f;
 
     public enum State
     {
         Follow,
-        Attack,
-        Die
+        Attack
     }
 
     public State currentState;
@@ -82,7 +81,7 @@ public class Enemy : MonoBehaviour
     IEnumerator Delay()
     {
         isAttacking = true;
-        yield return new WaitForSeconds(5.0f);
+        yield return new WaitForSeconds(attackCooldown);
         isAttacking = false;
     }
 
