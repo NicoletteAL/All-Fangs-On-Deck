@@ -4,26 +4,28 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [Header("Enemy Config")]
     public int damage = 10;
     public float attackRange = 1.25f;
     public float attackCooldown = 3.0f;
     public float moveSpeed = 1.5f;
     public float DEFAULT_MSPEED = 1.5f;
+    public bool isAttacking = false;
 
+    [Header("Objects")]
     public GameObject player;
     public Health playerHealth;
-
     public CircleCollider2D circleCollider2D;
-
-    public bool isAttacking = false;
 
     public enum State
     {
-        Idle,
+        Attack,
         Follow,
-        Attack
+        Idle,
+        Run
     }
 
+    [Header("State")]
     public State currentState;
 
     public virtual void Awake()
@@ -68,7 +70,7 @@ public class Enemy : MonoBehaviour
         if (player.transform.position.x > transform.position.x)
         {
             scale.x = Mathf.Abs(scale.x) * -1;
-            transform.Translate(moveSpeed * Time.deltaTime, 0,0);
+            transform.Translate(moveSpeed * Time.deltaTime * 1, 0,0);
         }
         else
         {
@@ -101,7 +103,7 @@ public class Enemy : MonoBehaviour
         currentState = State.Follow;
     }
 
-    private void OnDrawGizmos() 
+    public virtual void OnDrawGizmos() 
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, attackRange);

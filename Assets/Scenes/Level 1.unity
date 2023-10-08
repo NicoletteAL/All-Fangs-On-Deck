@@ -1415,13 +1415,14 @@ MonoBehaviour:
   damage: 5
   attackRange: 5
   attackCooldown: 1.5
-  moveSpeed: 1.5
-  DEFAULT_MSPEED: 1.5
+  moveSpeed: 1
+  DEFAULT_MSPEED: 1
+  isAttacking: 0
   player: {fileID: 0}
   playerHealth: {fileID: 0}
   circleCollider2D: {fileID: 258507133}
-  isAttacking: 0
   currentState: 0
+  targetDistance: 3
 --- !u!212 &258507136
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1482,7 +1483,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 258507132}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.77, y: -0.62, z: 0}
+  m_LocalPosition: {x: 3.95, y: -3.81, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3486,7 +3487,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 983568011}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce0a62318920c674b9240a4e21e6b086, type: 3}
   m_Name: 
@@ -3496,10 +3497,10 @@ MonoBehaviour:
   attackCooldown: 2
   moveSpeed: 1.5
   DEFAULT_MSPEED: 1.5
+  isAttacking: 0
   player: {fileID: 0}
   playerHealth: {fileID: 0}
   circleCollider2D: {fileID: 983568012}
-  isAttacking: 0
   currentState: 0
 --- !u!212 &983568014
 SpriteRenderer:
@@ -3561,7 +3562,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 983568011}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.129, y: -3.816, z: 0}
+  m_LocalPosition: {x: 4.129, y: 2.74, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6738,6 +6739,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2849093428180012287, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.04
+      objectReference: {fileID: 0}
     - target: {fileID: 5215905203689312388, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
       propertyPath: m_GravityScale
       value: 1
@@ -6945,7 +6950,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3901515012659127460}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.03, y: -3.26, z: -0.0058630817}
+  m_LocalPosition: {x: -7.63, y: -4.39, z: -0.0058630817}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
