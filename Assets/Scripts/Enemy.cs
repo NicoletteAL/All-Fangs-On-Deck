@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    //default values
     public int damage = 10;
-    public float moveSpeed = 1.5f;
     public float attackRange = 1.25f;
+    public float attackCooldown = 3.0f;
+    public float moveSpeed = 1.5f;
     public float DEFAULT_MSPEED = 1.5f;
 
     public GameObject player;
@@ -16,10 +16,10 @@ public class Enemy : MonoBehaviour
     public CircleCollider2D circleCollider2D;
 
     public bool isAttacking = false;
-    public float attackCooldown = 3.0f;
 
     public enum State
     {
+        Idle,
         Follow,
         Attack
     }
@@ -61,6 +61,7 @@ public class Enemy : MonoBehaviour
         }        
     }
 
+    //should probably be in meleeenemy instead?
     public virtual void Move()
     {
         Vector3 scale = transform.localScale;
@@ -103,7 +104,7 @@ public class Enemy : MonoBehaviour
     private void OnDrawGizmos() 
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, 1.25f);
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 }
 

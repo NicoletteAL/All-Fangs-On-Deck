@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 5962502847749447816}
   - component: {fileID: 5215905203689312388}
   - component: {fileID: 2706024422792840240}
-  - component: {fileID: 7138000555856773847}
   - component: {fileID: 746550959653046848}
+  - component: {fileID: 5975949549943789750}
   - component: {fileID: 2691686619327724234}
   - component: {fileID: 427813530779617586}
   m_Layer: 0
@@ -166,20 +166,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7836765, y: 1.3202385}
   m_EdgeRadius: 0
---- !u!114 &7138000555856773847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1650198869836578798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7640ff1aa39e2194c908ba6de1fbb12a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  princeAnimate: {fileID: 0}
-  maintenant: Standing_There
 --- !u!114 &746550959653046848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,15 +178,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cbc3b9df94c956409a8cc8d4c071d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  maxHealth: 3
-  speed: 6
-  jumpForce: 35
-  creatureName: Lonk
   projectile: {fileID: 5135895393532470437, guid: e15feb3630d84427a8ffd5d500d03bae, type: 3}
   melee: {fileID: 8639466989918887841, guid: 77aeb156ef9217b4cbd0495a5251cbf2, type: 3}
   meleeSpawn: {fileID: 5450156337450748737}
   shootSpawn: {fileID: 1722788261325066740}
+  health: {fileID: 0}
+--- !u!114 &5975949549943789750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650198869836578798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73327dba548c99946b8676136f0a3463, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 100
+  maxHealth: 100
+  emptyHeart: {fileID: 21300000, guid: 0d2b243554ce0e84493eb24371008777, type: 3}
+  fullHeart: {fileID: 21300000, guid: 24524bc6ea4441046b67127023542cad, type: 3}
+  hearts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &2691686619327724234
 MonoBehaviour:
   m_ObjectHideFlags: 0
