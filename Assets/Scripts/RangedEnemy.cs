@@ -69,7 +69,7 @@ public class RangedEnemy : Enemy
     {
         if (col.gameObject.tag == "Player")
         {
-            distanceBetweenPlayer = Mathf.Abs(transform.position.x - player.transform.position.x);
+            distanceBetweenPlayer = Mathf.Abs(transform.position.x - Player.instance.transform.position.x);
             if (distanceBetweenPlayer <= attackRange && distanceBetweenPlayer >= targetDistance)
             {
                 currentState = State.Attack;

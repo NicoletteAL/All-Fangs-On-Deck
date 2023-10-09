@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Hitbox : MonoBehaviour
 {
+    public int dmg = 5;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,13 +15,13 @@ public class Hitbox : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    void OnCollisionEnter2D(Collision2D collision) {
+    void OnCollisionEnter2D(Collision2D col) {
         //TODO: Check if enemy was hit
-        if(collision.gameObject.tag == "Enemy") {
-            Debug.Log("Hit!");
+        if (col.gameObject.tag == "Enemy") { // damage enemy
+            col.gameObject.GetComponent<EnemyHealth>().TakeDamage(dmg);
         }
         
     }

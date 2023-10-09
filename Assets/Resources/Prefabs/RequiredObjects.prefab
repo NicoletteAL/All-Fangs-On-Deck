@@ -185,7 +185,7 @@ MonoBehaviour:
   melee: {fileID: 8639466989918887841, guid: 77aeb156ef9217b4cbd0495a5251cbf2, type: 3}
   meleeSpawn: {fileID: 5450156337450748737}
   shootSpawn: {fileID: 1722788261325066740}
-  health: {fileID: 0}
+  health: {fileID: 3540390828443528670}
 --- !u!114 &2691686619327724234
 MonoBehaviour:
   m_ObjectHideFlags: 0

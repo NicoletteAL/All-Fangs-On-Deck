@@ -52,19 +52,14 @@ public class PlayerInputController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             sw.next_Animation_For_Prince("Prince_Throw");
-            //creature.LaunchProjectile();
-
         }
 
         if (Input.GetKey(KeyCode.D))
         {
             sw.next_Animation_For_Prince("Prince_Run"); 
-            
-
         } else if(Input.GetKey(KeyCode.A))
         {
             sw.next_Animation_For_Prince("Prince_Run");
-
         }
         else
         {

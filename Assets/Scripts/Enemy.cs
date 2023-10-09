@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
     public bool isAttacking = false;
 
     [Header("Objects")]
-    public GameObject player;
+    //public GameObject player;
     public PlayerHealth playerHealth;
     public CircleCollider2D circleCollider2D;
 
@@ -30,8 +30,8 @@ public class Enemy : MonoBehaviour
 
     public virtual void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        playerHealth = player.GetComponent<PlayerHealth>();
+        //player = GameObject.FindGameObjectWithTag("Player");
+        playerHealth = Player.instance.GetComponent<PlayerHealth>();
         circleCollider2D.radius = attackRange;
     }
 
@@ -67,7 +67,7 @@ public class Enemy : MonoBehaviour
     public virtual void Move()
     {
         Vector3 scale = transform.localScale;
-        if (player.transform.position.x > transform.position.x)
+        if (Player.instance.transform.position.x > transform.position.x)
         {
             scale.x = Mathf.Abs(scale.x) * -1;
             transform.Translate(moveSpeed * Time.deltaTime * 1, 0,0);
