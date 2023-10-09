@@ -23,40 +23,35 @@ public class RangedEnemy : Enemy
                 Attack();
                 break;
             case State.Follow:
-                Move(-1);
+                Move();
                 break;
             case State.Idle:
                 Idle();
                 break;
             case State.Run:
-                Move(1);
+                Move();
                 break;
         }
     }
 
-    public void Move(int flipVal) 
+    public override void Move() 
     {
-        //move towards player but stop a few feet/pixels/whatver away from the player
-        moveSpeed = DEFAULT_MSPEED;
+       moveSpeed = DEFAULT_MSPEED;
+       base.Move();
 
-        Vector3 scale = transform.localScale;
-        scale.x = Mathf.Abs(scale.x) * (flipVal * -1);
-        transform.Translate(moveSpeed * Time.deltaTime * flipVal, 0,0);
-        transform.localScale = scale;
     }
 
     public override void Attack()
     {
-        //base.Attack();
-        //shoot projectiles
-        //projectile damage player on collision
         Debug.Log("attacking");
         moveSpeed = 0.0f;
+        base.Attack();
     }
 
     public void Idle()
     {
         Debug.Log("hi");
+        moveSpeed = 0.0f;
         //stop shooting
     }
 
@@ -66,6 +61,7 @@ public class RangedEnemy : Enemy
         {
             moveSpeed = DEFAULT_MSPEED;
             currentState = State.Follow;
+            Debug.Log("Following");
         }
     }
 
@@ -73,18 +69,21 @@ public class RangedEnemy : Enemy
     {
         if (col.gameObject.tag == "Player")
         {
-            distanceBetweenPlayer = transform.position.x - player.transform.position.x;
-            if (distanceBetweenPlayer >= attackRange) //if player is not in attack range
+            distanceBetweenPlayer = Mathf.Abs(transform.position.x - player.transform.position.x);
+            if (distanceBetweenPlayer <= attackRange && distanceBetweenPlayer >= targetDistance)
             {
-                currentState = State.Follow;
-            }
-            else if (distanceBetweenPlayer <= attackRange && distanceBetweenPlayer >= targetDistance) 
-            {
-                currentState = State.Attack; //if player is within attack range but not in targetdistance
+                currentState = State.Attack;
+                Debug.Log("In attack range");
             }
             else if (distanceBetweenPlayer <= targetDistance)
             {
-                currentState = State.Run; //if player is inside the targetdistance
+                currentState = State.Run; //Needs to run in opposite direction of the player? idk
+                Debug.Log("Running");
+            }
+            else 
+            {
+                currentState = State.Follow;
+                Debug.Log("Following + not in attack range");
             }
         }
     }
