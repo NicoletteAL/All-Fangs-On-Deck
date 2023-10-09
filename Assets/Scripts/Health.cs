@@ -29,9 +29,9 @@ public class Health : MonoBehaviour
         }    
     }
 
-    public void GainHealth(int h)
+    public virtual void GainHealth(int h)
     {
-        currentHealth += h;
+        currentHealth = (currentHealth + h > 100) ? 100 : currentHealth + h;
     }
 
     public void TakeDamage(int d)

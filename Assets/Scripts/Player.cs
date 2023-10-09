@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
         {
             if (health.currentHealth != health.maxHealth)
             {
-                health.GainHealth(10); //temp value
+                health.GainHealth(50); //temp value
                 Destroy(col.gameObject);
             }
         }
