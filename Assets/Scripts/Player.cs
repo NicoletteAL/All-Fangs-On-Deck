@@ -11,22 +11,12 @@ public class Player : MonoBehaviour
     public GameObject meleeSpawn;
     public GameObject shootSpawn;
 
-    public Health health;
+    public PlayerHealth health;
 
     void Awake() {
         if(!instance) { instance = this; } else{ Destroy(gameObject); }
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void LaunchProjectile()
     {
         Instantiate(projectile, new Vector3(shootSpawn.transform.position.x, shootSpawn.transform.position.y, 0f), Quaternion.identity);

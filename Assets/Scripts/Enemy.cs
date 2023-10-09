@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
 
     [Header("Objects")]
     public GameObject player;
-    public Health playerHealth;
+    public PlayerHealth playerHealth;
     public CircleCollider2D circleCollider2D;
 
     public enum State
@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
     public virtual void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        playerHealth = player.GetComponent<Health>();
+        playerHealth = player.GetComponent<PlayerHealth>();
         circleCollider2D.radius = attackRange;
     }
 
