@@ -181,8 +181,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cbc3b9df94c956409a8cc8d4c071d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 5135895393532470437, guid: e15feb3630d84427a8ffd5d500d03bae, type: 3}
-  melee: {fileID: 8639466989918887841, guid: 77aeb156ef9217b4cbd0495a5251cbf2, type: 3}
+  projectile: {fileID: 3748702962525376807, guid: 8fc580a27cc556a4da0d8896474fb650, type: 3}
+  melee: {fileID: 7481306874473997366, guid: 5f4f37bace4f9574dbb6b8983bdb9475, type: 3}
   meleeSpawn: {fileID: 5450156337450748737}
   shootSpawn: {fileID: 1722788261325066740}
   health: {fileID: 3540390828443528670}
