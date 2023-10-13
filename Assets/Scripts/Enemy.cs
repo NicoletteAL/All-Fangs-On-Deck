@@ -13,9 +13,8 @@ public class Enemy : MonoBehaviour
     public bool isAttacking = false;
 
     [Header("Objects")]
-    //public GameObject player;
     public PlayerHealth playerHealth;
-    public CircleCollider2D circleCollider2D;
+    public CircleCollider2D circleCollider2D; //not the trigger
 
     public enum State
     {
@@ -30,28 +29,13 @@ public class Enemy : MonoBehaviour
 
     public virtual void Awake()
     {
-        //player = GameObject.FindGameObjectWithTag("Player");
         playerHealth = Player.instance.GetComponent<PlayerHealth>();
-        circleCollider2D.radius = attackRange;
+        //circleCollider2D.radius = attackRange;
     }
 
     public virtual void Start()
     {
         currentState = State.Follow;
-    }
-
-    public virtual void FixedUpdate()
-    {
-        switch (currentState)
-        {
-            default:
-            case State.Attack:
-                Attack();
-                break;
-            case State.Follow:
-                Move();
-                break;
-        }
     }
 
     public virtual void Attack()
@@ -88,15 +72,6 @@ public class Enemy : MonoBehaviour
         isAttacking = false;
     }
 
-    public virtual void OnTriggerStay2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Player")
-        {
-            moveSpeed = 0.0f;
-            currentState = State.Attack;
-        }
-    }
-
     public virtual void OnTriggerExit2D(Collider2D col)
     {
         moveSpeed = DEFAULT_MSPEED;
@@ -106,7 +81,7 @@ public class Enemy : MonoBehaviour
     public virtual void OnDrawGizmos() 
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
+        //Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 }
 

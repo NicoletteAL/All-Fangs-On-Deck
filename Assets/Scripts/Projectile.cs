@@ -5,7 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     Rigidbody2D rb2d;
-    public int dmg = 5;
+    public int dmg = 10;
     
     // Start is called before the first frame update
     void Start()
@@ -23,6 +23,7 @@ public class Projectile : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col) {
         if (col.gameObject.tag == "Enemy") { // damage enemy
+            Debug.Log("projectile collided");
             col.gameObject.GetComponent<EnemyHealth>().TakeDamage(dmg);
         }
         Destroy(this.gameObject);

@@ -14,7 +14,7 @@ public class RangedEnemy : Enemy
         currentState = State.Idle;
     }
 
-    public override void FixedUpdate()
+    void FixedUpdate()
     {
         switch (currentState)
         {
@@ -65,7 +65,7 @@ public class RangedEnemy : Enemy
         }
     }
 
-    public override void OnTriggerStay2D(Collider2D col)
+    void OnTriggerStay2D(Collider2D col)
     {
         if (col.gameObject.tag == "Player")
         {
@@ -86,12 +86,6 @@ public class RangedEnemy : Enemy
                 Debug.Log("Following + not in attack range");
             }
         }
-    }
-
-    public override void OnTriggerExit2D(Collider2D col)
-    {
-        moveSpeed = DEFAULT_MSPEED;
-        currentState = State.Follow;
     }
 
     //yellow shows trigger range, red shows target distance
