@@ -13,8 +13,6 @@ public class Enemy : MonoBehaviour
     public bool isAttacking = false;
 
     [Header("Objects")]
-    public PlayerHealth playerHealth;
-
     public CircleCollider2D circleCollider2D;
 
     public enum State
@@ -28,18 +26,12 @@ public class Enemy : MonoBehaviour
     [Header("State")]
     public State currentState;
 
-    public virtual void Awake()
-    {
-        playerHealth = Player.instance.GetComponent<PlayerHealth>();
-        currentState = State.Idle;
-    }
-
+    //ranged doesnt need this
     public virtual void Attack()
     {
-        //base
         if (!isAttacking)
         {
-            playerHealth.TakeDamage(damage);
+            //playerHealth.TakeDamage(damage);
             StartCoroutine(Delay());  
         }
     }

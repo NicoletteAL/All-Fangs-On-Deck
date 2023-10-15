@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class MeleeEnemy : Enemy
 {
+    public PlayerHealth playerHealth;
+
+    void Awake()
+    {
+        playerHealth = Player.instance.GetComponent<PlayerHealth>();
+    }
+    
     void Start()
     {
         currentState = State.Follow;

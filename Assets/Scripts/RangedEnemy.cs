@@ -8,11 +8,6 @@ public class RangedEnemy : Enemy
     [SerializeField] private float targetDistance;
     [SerializeField] private float distanceBetweenPlayer;
 
-    void Start()
-    {
-        currentState = State.Idle;
-    }
-
     void FixedUpdate()
     {
         switch (currentState)
@@ -36,6 +31,7 @@ public class RangedEnemy : Enemy
     public void Move(bool isRunning) 
     {
        moveSpeed = DEFAULT_MSPEED;
+       
        float positionX = transform.position.x - Player.instance.transform.position.x;
        Vector2 direction = new Vector2(positionX, 0);
 
