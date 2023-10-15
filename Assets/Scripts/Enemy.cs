@@ -44,6 +44,23 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    public virtual void Move()
+    {
+        Vector3 scale = transform.localScale;
+        if (Player.instance.transform.position.x > transform.position.x)
+        {
+            scale.x = Mathf.Abs(scale.x) * -1;
+            transform.Translate(moveSpeed * Time.deltaTime * 1, 0,0);
+        }
+        else
+        {
+            scale.x = Mathf.Abs(scale.x);
+            transform.Translate(moveSpeed * Time.deltaTime * -1, 0,0);
+        }
+
+        transform.localScale = scale;        
+    }
+
     public virtual void Idle()
     {
         Debug.Log("In idle state");
@@ -56,7 +73,7 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(attackCooldown);
         isAttacking = false;
     }
-    
+
     public virtual void OnDrawGizmos() 
     {
         Gizmos.color = Color.yellow;

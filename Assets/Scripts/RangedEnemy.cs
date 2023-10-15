@@ -22,28 +22,37 @@ public class RangedEnemy : Enemy
                 Attack();
                 break;
             case State.Follow:
-                Move();
+                Move(false);
                 break;
             case State.Idle:
                 Idle();
                 break;
             case State.Run:
-                Move();
+                Move(true);
                 break;
         }
     }
 
-    public void Move() 
+    public void Move(bool isRunning) 
     {
        moveSpeed = DEFAULT_MSPEED;
-       //base.Move();
+       float positionX = transform.position.x - Player.instance.transform.position.x;
+       Vector2 direction = new Vector2(positionX, 0);
 
+       if (isRunning)
+       {
+            transform.Translate(direction.normalized * moveSpeed * Time.deltaTime);
+       }
+       else 
+       {
+             transform.Translate(-direction.normalized * moveSpeed * Time.deltaTime);
+       }
     }
 
     public override void Attack()
     {
         Debug.Log("attacking");
-        moveSpeed = 0.0f;
+        moveSpeed = 0.75f;
         base.Attack();
     }
 
@@ -51,10 +60,14 @@ public class RangedEnemy : Enemy
     {
         if (col.gameObject.tag == "Player")
         {
-            moveSpeed = DEFAULT_MSPEED;
-            currentState = State.Follow;
-            Debug.Log("Following");
+            currentState = State.Attack;
         }
+    }
+
+    public void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Player")
+            currentState = State.Follow;
     }
 
     public void OnTriggerStay2D(Collider2D col)
@@ -62,33 +75,23 @@ public class RangedEnemy : Enemy
         if (col.gameObject.tag == "Player")
         {
             distanceBetweenPlayer = Mathf.Abs(transform.position.x - Player.instance.transform.position.x);
-            if (distanceBetweenPlayer <= attackRange && distanceBetweenPlayer >= targetDistance)
+          
+            if (distanceBetweenPlayer <= targetDistance)
             {
-                currentState = State.Attack;
-                Debug.Log("In attack range");
-            }
-            else if (distanceBetweenPlayer <= targetDistance)
-            {
-                currentState = State.Run; //Needs to run in opposite direction of the player? idk
+                currentState = State.Run;
                 Debug.Log("Running");
-            }
-            else 
-            {
-                currentState = State.Follow;
-                Debug.Log("Following + not in attack range");
             }
         }
     }
 
     //yellow shows trigger range, red shows target distance
-    /*
     public override void OnDrawGizmos()
     {
         base.OnDrawGizmos();
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, targetDistance);
     }
-    */
+    
 
 
 

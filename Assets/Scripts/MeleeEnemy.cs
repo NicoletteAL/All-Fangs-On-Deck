@@ -29,25 +29,7 @@ public class MeleeEnemy : Enemy
         moveSpeed = 0.0f;
         base.Attack();
     }
-
-    public void Move()
-    {
-        Vector3 scale = transform.localScale;
-        if (Player.instance.transform.position.x > transform.position.x)
-        {
-            scale.x = Mathf.Abs(scale.x) * -1;
-            transform.Translate(moveSpeed * Time.deltaTime * 1, 0,0);
-        }
-        else
-        {
-            scale.x = Mathf.Abs(scale.x);
-            transform.Translate(moveSpeed * Time.deltaTime * -1, 0,0);
-        }
-
-        transform.localScale = scale;
-     }
-
-    
+   
     public void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Player")
