@@ -13,8 +13,8 @@ public class Enemy : MonoBehaviour
     public bool isAttacking = false;
 
     [Header("Objects")]
-    //public GameObject player;
     public PlayerHealth playerHealth;
+
     public CircleCollider2D circleCollider2D;
 
     public enum State
@@ -30,40 +30,20 @@ public class Enemy : MonoBehaviour
 
     public virtual void Awake()
     {
-        //player = GameObject.FindGameObjectWithTag("Player");
         playerHealth = Player.instance.GetComponent<PlayerHealth>();
-        circleCollider2D.radius = attackRange;
-    }
-
-    public virtual void Start()
-    {
-        currentState = State.Follow;
-    }
-
-    public virtual void FixedUpdate()
-    {
-        switch (currentState)
-        {
-            default:
-            case State.Attack:
-                Attack();
-                break;
-            case State.Follow:
-                Move();
-                break;
-        }
+        currentState = State.Idle;
     }
 
     public virtual void Attack()
     {
+        //base
         if (!isAttacking)
         {
             playerHealth.TakeDamage(damage);
-            StartCoroutine(Delay());
-        }        
+            StartCoroutine(Delay());  
+        }
     }
 
-    //should probably be in meleeenemy instead?
     public virtual void Move()
     {
         Vector3 scale = transform.localScale;
@@ -78,7 +58,13 @@ public class Enemy : MonoBehaviour
             transform.Translate(moveSpeed * Time.deltaTime * -1, 0,0);
         }
 
-        transform.localScale = scale;
+        transform.localScale = scale;        
+    }
+
+    public virtual void Idle()
+    {
+        Debug.Log("In idle state");
+        moveSpeed = 0.0f;
     }
 
     IEnumerator Delay()
@@ -86,21 +72,6 @@ public class Enemy : MonoBehaviour
         isAttacking = true;
         yield return new WaitForSeconds(attackCooldown);
         isAttacking = false;
-    }
-
-    public virtual void OnTriggerStay2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Player")
-        {
-            moveSpeed = 0.0f;
-            currentState = State.Attack;
-        }
-    }
-
-    public virtual void OnTriggerExit2D(Collider2D col)
-    {
-        moveSpeed = DEFAULT_MSPEED;
-        currentState = State.Follow;
     }
 
     public virtual void OnDrawGizmos() 

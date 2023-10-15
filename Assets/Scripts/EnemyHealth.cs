@@ -11,6 +11,7 @@ public class EnemyHealth : PlayerHealth
     {
         if (currentHealth <= 0)
         {
+            Debug.Log("Enemy Dead");
             Destroy(gameObject);
         }
         else
