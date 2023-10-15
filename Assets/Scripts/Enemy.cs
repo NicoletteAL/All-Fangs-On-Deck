@@ -14,7 +14,8 @@ public class Enemy : MonoBehaviour
 
     [Header("Objects")]
     public PlayerHealth playerHealth;
-    public CircleCollider2D circleCollider2D; //not the trigger
+
+    public CircleCollider2D circleCollider2D;
 
     public enum State
     {
@@ -30,39 +31,23 @@ public class Enemy : MonoBehaviour
     public virtual void Awake()
     {
         playerHealth = Player.instance.GetComponent<PlayerHealth>();
-        //circleCollider2D.radius = attackRange;
-    }
-
-    public virtual void Start()
-    {
-        currentState = State.Follow;
+        currentState = State.Idle;
     }
 
     public virtual void Attack()
     {
+        //base
         if (!isAttacking)
         {
             playerHealth.TakeDamage(damage);
-            StartCoroutine(Delay());
-        }        
+            StartCoroutine(Delay());  
+        }
     }
 
-    //should probably be in meleeenemy instead?
-    public virtual void Move()
+    public virtual void Idle()
     {
-        Vector3 scale = transform.localScale;
-        if (Player.instance.transform.position.x > transform.position.x)
-        {
-            scale.x = Mathf.Abs(scale.x) * -1;
-            transform.Translate(moveSpeed * Time.deltaTime * 1, 0,0);
-        }
-        else
-        {
-            scale.x = Mathf.Abs(scale.x);
-            transform.Translate(moveSpeed * Time.deltaTime * -1, 0,0);
-        }
-
-        transform.localScale = scale;
+        Debug.Log("In idle state");
+        moveSpeed = 0.0f;
     }
 
     IEnumerator Delay()
@@ -71,17 +56,11 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(attackCooldown);
         isAttacking = false;
     }
-
-    public virtual void OnTriggerExit2D(Collider2D col)
-    {
-        moveSpeed = DEFAULT_MSPEED;
-        currentState = State.Follow;
-    }
-
+    
     public virtual void OnDrawGizmos() 
     {
         Gizmos.color = Color.yellow;
-        //Gizmos.DrawWireSphere(transform.position, attackRange);
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 }
 

@@ -5,11 +5,10 @@ using UnityEngine;
 public class RangedEnemy : Enemy
 {    
     [Header("Ranged Config")]
-    [SerializeField]
-    private float targetDistance;
-    private float distanceBetweenPlayer;
+    [SerializeField] private float targetDistance;
+    [SerializeField] private float distanceBetweenPlayer;
 
-    public override void Start()
+    void Start()
     {
         currentState = State.Idle;
     }
@@ -34,10 +33,10 @@ public class RangedEnemy : Enemy
         }
     }
 
-    public override void Move() 
+    public void Move() 
     {
        moveSpeed = DEFAULT_MSPEED;
-       base.Move();
+       //base.Move();
 
     }
 
@@ -46,13 +45,6 @@ public class RangedEnemy : Enemy
         Debug.Log("attacking");
         moveSpeed = 0.0f;
         base.Attack();
-    }
-
-    public void Idle()
-    {
-        Debug.Log("hi");
-        moveSpeed = 0.0f;
-        //stop shooting
     }
 
     public void OnTriggerEnter2D(Collider2D col)
@@ -65,7 +57,7 @@ public class RangedEnemy : Enemy
         }
     }
 
-    void OnTriggerStay2D(Collider2D col)
+    public void OnTriggerStay2D(Collider2D col)
     {
         if (col.gameObject.tag == "Player")
         {
@@ -89,12 +81,14 @@ public class RangedEnemy : Enemy
     }
 
     //yellow shows trigger range, red shows target distance
+    /*
     public override void OnDrawGizmos()
     {
         base.OnDrawGizmos();
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, targetDistance);
     }
+    */
 
 
 
