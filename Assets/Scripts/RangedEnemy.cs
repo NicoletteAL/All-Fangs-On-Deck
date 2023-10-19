@@ -8,13 +8,18 @@ public class RangedEnemy : Enemy
     [SerializeField] private float targetDistance;
     [SerializeField] private float distanceBetweenPlayer;
 
+    public GameObject proj;
+    public Transform spawner;
+
+    public bool isShooting = false;
+
     void FixedUpdate()
     {
         switch (currentState)
         {
             default:
             case State.Attack:
-                Attack();
+                Shoot();
                 break;
             case State.Follow:
                 Move(false);
@@ -45,25 +50,24 @@ public class RangedEnemy : Enemy
        }
     }
 
-    public override void Attack()
+    public void Shoot()
     {
-        Debug.Log("attacking");
         moveSpeed = 0.75f;
-        base.Attack();
-    }
 
-    public void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Player")
+        if (!isShooting)
         {
-            currentState = State.Attack;
+            var q = Quaternion.AngleAxis(20.0f, Vector3.up);
+            GameObject projectile = Instantiate(proj, spawner.transform.position, q);
+        
+            StartCoroutine(Delay());
         }
     }
 
-    public void OnTriggerExit2D(Collider2D col)
+    IEnumerator Delay()
     {
-        if (col.gameObject.tag == "Player")
-            currentState = State.Follow;
+        isShooting = true;
+        yield return new WaitForSeconds(attackCooldown);
+        isShooting = false;
     }
 
     public void OnTriggerStay2D(Collider2D col)
