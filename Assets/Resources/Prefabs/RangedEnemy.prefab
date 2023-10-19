@@ -112,6 +112,9 @@ MonoBehaviour:
   currentState: 2
   targetDistance: 4.05
   distanceBetweenPlayer: 0
+  proj: {fileID: 4119906924122590076, guid: 6d55b671fdf7a3e4aafe20fdfc6bd09f, type: 3}
+  spawner: {fileID: 0}
+  isShooting: 0
 --- !u!50 &6441594712573505932
 Rigidbody2D:
   serializedVersion: 4
@@ -231,5 +234,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a92931ac1bd5e648b7c2fa37dcbbf12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 30
-  maxHealth: 30
+  currentHealth: 20
+  maxHealth: 20

@@ -14,7 +14,6 @@ public class Enemy : MonoBehaviour
 
     [Header("Objects")]
     public PlayerHealth playerHealth;
-
     public CircleCollider2D circleCollider2D;
 
     public enum State
@@ -28,37 +27,10 @@ public class Enemy : MonoBehaviour
     [Header("State")]
     public State currentState;
 
-    public virtual void Awake()
+    void Start()
     {
         playerHealth = Player.instance.GetComponent<PlayerHealth>();
-        currentState = State.Idle;
-    }
-
-    public virtual void Attack()
-    {
-        //base
-        if (!isAttacking)
-        {
-            playerHealth.TakeDamage(damage);
-            StartCoroutine(Delay());  
-        }
-    }
-
-    public virtual void Move()
-    {
-        Vector3 scale = transform.localScale;
-        if (Player.instance.transform.position.x > transform.position.x)
-        {
-            scale.x = Mathf.Abs(scale.x) * -1;
-            transform.Translate(moveSpeed * Time.deltaTime * 1, 0,0);
-        }
-        else
-        {
-            scale.x = Mathf.Abs(scale.x);
-            transform.Translate(moveSpeed * Time.deltaTime * -1, 0,0);
-        }
-
-        transform.localScale = scale;        
+        currentState = State.Follow;
     }
 
     public virtual void Idle()
@@ -67,11 +39,20 @@ public class Enemy : MonoBehaviour
         moveSpeed = 0.0f;
     }
 
-    IEnumerator Delay()
+    public virtual void OnTriggerEnter2D(Collider2D col)
     {
-        isAttacking = true;
-        yield return new WaitForSeconds(attackCooldown);
-        isAttacking = false;
+        if (col.gameObject.tag == "Player")
+        {
+            currentState = State.Attack;
+        }
+    }
+
+    public virtual void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Player")
+        {
+            currentState = State.Follow;
+        }
     }
 
     public virtual void OnDrawGizmos() 

@@ -51,5 +51,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "All-Fangs-On-Deck.sln"
+    "dotnet.defaultSolution": "All-Fangs-On-Deck.sln",
+    "dotnet.preferCSharpExtension": true
 }

@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class MeleeEnemy : Enemy
 {
-    void Start()
-    {
-        currentState = State.Follow;
-    }
-
     void FixedUpdate()
     {
         switch (currentState)
@@ -23,34 +18,44 @@ public class MeleeEnemy : Enemy
         }
     }
 
-    public override void Attack()
+    public void Attack()
     {
-        Debug.Log("Melee Attacking");
-        moveSpeed = 0.0f;
-        base.Attack();
-    }
-   
-    public void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Player")
+        if (!isAttacking)
         {
-            currentState = State.Attack;
+            moveSpeed = 0.0f;
+            playerHealth.TakeDamage(damage);
+            StartCoroutine(Delay());  
         }
     }
     
-
-    public void OnTriggerStay2D(Collider2D col)
+    public virtual void Move()
     {
-        if (col.gameObject.tag == "Player")
+        Vector3 scale = transform.localScale;
+        if (Player.instance.transform.position.x > transform.position.x)
         {
-            currentState = State.Attack;
+            scale.x = Mathf.Abs(scale.x) * -1;
+            transform.Translate(moveSpeed * Time.deltaTime * 1, 0,0);
         }
+        else
+        {
+            scale.x = Mathf.Abs(scale.x);
+            transform.Translate(moveSpeed * Time.deltaTime * -1, 0,0);
+        }
+
+        transform.localScale = scale;
     }
 
-    public void OnTriggerExit2D(Collider2D col)
+    IEnumerator Delay()
+    {
+        isAttacking = true;
+        yield return new WaitForSeconds(attackCooldown);
+        isAttacking = false;
+    }
+
+    public override void OnTriggerExit2D(Collider2D col)
     {
         moveSpeed = DEFAULT_MSPEED;
-        currentState = State.Follow;
+        base.OnTriggerExit2D(col);
     }
 
 }
