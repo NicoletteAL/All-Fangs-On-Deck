@@ -30,13 +30,26 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Item")
+        GameObject colObject = col.gameObject;
+        switch (colObject.tag)
         {
-            if (health.currentHealth != health.maxHealth)
-            {
-                health.GainHealth(50); //temp value
-                Destroy(col.gameObject);
-            }
+            case "Item":
+                if (health.currentHealth != health.maxHealth)
+                {
+                    health.GainHealth(50); //temp value
+                    Destroy(col.gameObject);
+                }
+                break;
+            case "Checkpoint":
+                int currentLvl = colObject.GetComponent<Checkpoint>().nextScene;
+                SwitchLevel(currentLvl);
+                break;
         }
+    }
+
+    public void SwitchLevel(int index)
+    {        
+        CheckpointHandler checkpointHandler = FindObjectOfType<CheckpointHandler>();
+        checkpointHandler.SwitchScenes(index); 
     }
 }
