@@ -34,7 +34,11 @@ AudioMixerController:
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
   m_UpdateMode: 0
-  m_ExposedParameters: []
+  m_ExposedParameters:
+  - guid: 9384bb383a2ad4010a655a27ca845b3b
+    name: MusicSlider
+  - guid: a4b179bfeb152485fbc1933d695871fe
+    name: MasterSlider
   m_AudioMixerGroupViews:
   - guids:
     - c74c6b802c0244f02977b7ca58818145
