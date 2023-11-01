@@ -52,3 +52,9 @@ TagManager:
   - name: UI
     uniqueID: 1748374131
     locked: 0
+  - name: foreground
+    uniqueID: 681998581
+    locked: 0
+  - name: background
+    uniqueID: 3843237801
+    locked: 0
