@@ -20,12 +20,11 @@ public class Player : MonoBehaviour
     public void LaunchProjectile()
     {
         Instantiate(projectile, new Vector3(shootSpawn.transform.position.x, shootSpawn.transform.position.y, 0f), Quaternion.identity);
-        //newProjectile.GetComponent<projectile>().LaunchProjectile(Camera.main.ScreenToWorldPoint(Input.mousePosition));
     }
 
     public void Punch(){
         GameObject hit = Instantiate(melee, new Vector3(meleeSpawn.transform.position.x, meleeSpawn.transform.position.y, 0f), Quaternion.identity);
-        Destroy(hit, 1);
+        Destroy(hit, 0.25f);
     }
 
     void OnTriggerEnter2D(Collider2D col)

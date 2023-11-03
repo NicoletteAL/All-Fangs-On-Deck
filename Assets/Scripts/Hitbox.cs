@@ -20,7 +20,9 @@ public class Hitbox : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col) {
         //TODO: Check if enemy was hit
+        //Debug.Log(col.gameObject);
         if (col.gameObject.tag == "Enemy") { // damage enemy
+            Debug.Log("hit!");
             col.gameObject.GetComponent<EnemyHealth>().TakeDamage(dmg);
         }
         

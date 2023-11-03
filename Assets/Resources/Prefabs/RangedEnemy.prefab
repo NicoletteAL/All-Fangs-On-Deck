@@ -108,7 +108,7 @@ MonoBehaviour:
   DEFAULT_MSPEED: 1
   isAttacking: 0
   playerHealth: {fileID: 0}
-  circleCollider2D: {fileID: 0}
+  circleCollider2D: {fileID: 6107659908145541146}
   currentState: 2
   targetDistance: 4.05
   distanceBetweenPlayer: 0
