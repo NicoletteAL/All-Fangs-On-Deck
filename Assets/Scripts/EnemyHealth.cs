@@ -9,6 +9,7 @@ public class EnemyHealth : PlayerHealth
 
     public override void TakeDamage(int d)
     {
+        Debug.Log("Taking Damage");
         if (currentHealth <= 0)
         {
             Debug.Log("Enemy Dead");
