@@ -1100,7 +1100,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1384825027}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: 0, z: 0}
+  m_LocalPosition: {x: -1, y: -0.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1363,7 +1363,7 @@ GameObject:
   - component: {fileID: 1742470352}
   m_Layer: 6
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1978,6 +1978,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 428467007360753575, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+      propertyPath: jumpAmount
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 746550959653046848, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
       propertyPath: h
       value: 
@@ -2005,6 +2009,14 @@ PrefabInstance:
     - target: {fileID: 1650198869836578798, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706024422792840240, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+      propertyPath: m_Size.y
+      value: 1.3605655
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706024422792840240, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.031776845
       objectReference: {fileID: 0}
     - target: {fileID: 2849093428180012287, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
       propertyPath: m_LocalPosition.x
