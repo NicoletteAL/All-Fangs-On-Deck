@@ -13,17 +13,36 @@ public class Player : MonoBehaviour
 
     public PlayerHealth health;
 
+    bool right = true;
+
     void Awake() {
         if(!instance) { instance = this; } else{ Destroy(gameObject); }
     }
 
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) { //determine spawn position and projectile direction
+            shootSpawn.transform.position = new Vector2(transform.position.x + 1.5f, shootSpawn.transform.position.y);
+            meleeSpawn.transform.position = new Vector2(transform.position.x + 1.5f, meleeSpawn.transform.position.y);
+            right = true;
+        }
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) {
+            shootSpawn.transform.position = new Vector2(transform.position.x - 1.5f, shootSpawn.transform.position.y);
+            meleeSpawn.transform.position = new Vector2(transform.position.x - 1.5f, meleeSpawn.transform.position.y);
+            right = false;
+        }
+        
+    }
+
     public void LaunchProjectile()
     {
-        Instantiate(projectile, new Vector3(shootSpawn.transform.position.x, shootSpawn.transform.position.y, 0f), Quaternion.identity);
+        GameObject p = Instantiate(projectile, new Vector3(shootSpawn.transform.position.x, shootSpawn.transform.position.y, 0f), Quaternion.identity);
+        Projectile x = p.GetComponent<Projectile>();
+        x.right = right;
     }
 
     public void Punch(){
         GameObject hit = Instantiate(melee, new Vector3(meleeSpawn.transform.position.x, meleeSpawn.transform.position.y, 0f), Quaternion.identity);
+        hit.GetComponent<Hitbox>().setDir(right);
         Destroy(hit, 0.25f);
     }
 
