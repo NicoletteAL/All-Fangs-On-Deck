@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         playerHealth = Player.instance.GetComponent<PlayerHealth>();
-        currentState = State.Follow;
+        currentState = State.Idle;
     }
 
     public virtual void Idle()
