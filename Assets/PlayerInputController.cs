@@ -6,7 +6,7 @@ public class PlayerInputController : MonoBehaviour
 {
     Rigidbody2D rb2d;
 
-    Player instance;
+    //Player instance;
 
     public Character_animation_switch sw;
 
