@@ -5,6 +5,7 @@ using UnityEngine;
 public class Hitbox : MonoBehaviour
 {
     public int dmg = 5;
+    SpriteRenderer sr;
 
     // Start is called before the first frame update
     void Start()
@@ -19,12 +20,16 @@ public class Hitbox : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D col) {
-        //TODO: Check if enemy was hit
-        //Debug.Log(col.gameObject);
         if (col.gameObject.tag == "Enemy") { // damage enemy
             Debug.Log("hit!");
             col.gameObject.GetComponent<EnemyHealth>().TakeDamage(dmg);
         }
         
+    }
+
+    public void setDir(bool flip) { // invert bool, so right = 1->0
+        sr = GetComponent<SpriteRenderer>();
+        sr.flipX = !flip;
+        Debug.Log(flip);
     }
 }
