@@ -130,5 +130,9 @@ public class OptionsMenu : MonoBehaviour
         float volume = MasterSlider.value;
         myAudioMixer.SetFloat("MasterSlider",Mathf.Log10(volume)*20);
     }
+
+    public void ShowControls() { // Have a control list
+
+    }
         
 }
