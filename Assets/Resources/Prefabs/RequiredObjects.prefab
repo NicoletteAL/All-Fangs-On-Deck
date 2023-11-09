@@ -846,6 +846,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2849093428180012287}
     m_Modifications:
+    - target: {fileID: 2752518938427475136, guid: a3b4b34299cbe42a9a50f1cc3aa9cc40, type: 3}
+      propertyPath: creature
+      value: 
+      objectReference: {fileID: 2849093428180012287}
     - target: {fileID: 5863604555800893673, guid: a3b4b34299cbe42a9a50f1cc3aa9cc40, type: 3}
       propertyPath: m_Name
       value: Main Camera

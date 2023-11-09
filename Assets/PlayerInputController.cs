@@ -18,6 +18,7 @@ public class PlayerInputController : MonoBehaviour
 
     void Update()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.J) || Input.GetMouseButtonDown(0)) {
             Player.instance.Punch();
             
@@ -25,7 +26,7 @@ public class PlayerInputController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.K) || Input.GetMouseButtonDown(1)) {
             //sw.next_Animation_For_Prince("Prince_Throw");
             Player.instance.LaunchProjectile();
-        }
+        } */
     }
 }
 
