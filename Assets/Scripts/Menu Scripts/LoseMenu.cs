@@ -1,0 +1,58 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
+public class LoseMenu : MonoBehaviour
+{
+    int hp;
+    public ImageFader imageFader;
+    bool changingScenes = false;
+    // Start is called before the first frame update
+    void Start()
+    {
+        hp = Player.instance.GetComponent<PlayerHealth>().currentHealth;
+        GetComponent<Canvas>().enabled = false;// Start with the pause menu UI hidden
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public void DeathScreen() {
+        Time.timeScale = 0f; // Freeze the game time
+        GetComponent<Canvas>().enabled = true; // Show the pause menu UI
+    }
+
+    public void TitleScreen(){
+        if(changingScenes){
+            return;
+        }
+        changingScenes = true;
+        Time.timeScale = 1f; // Restore the game time
+        StartCoroutine(ChangeSceneRoutine());
+        IEnumerator ChangeSceneRoutine(){
+            imageFader.FadeToBlack();
+            yield return new WaitForSeconds(imageFader.fadeTime);
+            SceneManager.LoadScene(0);
+            yield return null;
+        }
+        
+    }
+
+    public void Retry() {
+        Time.timeScale = 1f; // Restore the game time
+        Player.instance.GetComponent<PlayerHealth>().currentHealth = hp;
+        StartCoroutine(ChangeSceneRoutine());
+        IEnumerator ChangeSceneRoutine(){
+            imageFader.FadeToBlack();
+            yield return new WaitForSeconds(imageFader.fadeTime);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            yield return null;
+        }
+    }
+}
