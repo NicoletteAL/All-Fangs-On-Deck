@@ -7,9 +7,9 @@ public class MainMenuManager : MonoBehaviour
 {
     public ImageFader imageFader;
     // Start is called before the first frame update
-    public void PrintHello(){
+    /*public void PrintHello(){
         Debug.Log("Hello!");
-    }
+    }*/
 
     bool changingScenes = false;
     public void ChangeScene(string sceneName ){
