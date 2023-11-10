@@ -29,8 +29,26 @@ public class PlayerMovement : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Space) && grounded)
         {
+            sw.next_Animation_For_Prince("Jump_Arms");
+            sw.next_Animation_For_Prince("Jump_Legs");
+
             rb2d.AddForce(Vector2.up * jumpAmount, ForceMode2D.Impulse);
-        } 
+        }
+
+        if (Input.GetKeyDown(KeyCode.J) || Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("Melee");
+            Player.instance.Punch();
+
+        }
+        if (Input.GetKeyDown(KeyCode.K) || Input.GetMouseButtonDown(1))
+        {
+            Debug.Log("shoot");
+            sw.next_Animation_For_Prince("Throw_Arms");
+            Player.instance.LaunchProjectile();
+           
+            //garlicThrow();
+        }
     }
 
     // Update is called once per frame
@@ -42,12 +60,14 @@ public class PlayerMovement : MonoBehaviour
         if (pos.x != 0)
         {
             //animation run
-            sw.next_Animation_For_Prince("Prince_Run");
+            sw.next_Animation_For_Prince("Run_Arms");
+            sw.next_Animation_For_Prince("Run_Legs");
             Flip(pos.x > 0);
         }
         else 
         {
-            sw.next_Animation_For_Prince("Standing_There");
+            sw.next_Animation_For_Prince("Idle_Arms");
+            sw.next_Animation_For_Prince("Idle_Legs");
         }
     }
 
@@ -65,4 +85,17 @@ public class PlayerMovement : MonoBehaviour
         sr.flipX = b;
     }
     
+    /*
+    public void garlicThrow()
+    {
+
+        StartCoroutine(garlicThrowRoutine());
+
+        IEnumerator garlicThrowRoutine()
+        {
+            yield return new WaitForSeconds(2f);
+
+        }
+
+    } */
 }

@@ -6,7 +6,7 @@ public class PlayerInputController : MonoBehaviour
 {
     Rigidbody2D rb2d;
 
-    Player instance;
+    //Player instance;
 
     public Character_animation_switch sw;
 
@@ -18,16 +18,15 @@ public class PlayerInputController : MonoBehaviour
 
     void Update()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.J) || Input.GetMouseButtonDown(0)) {
-            Debug.Log("Melee");
             Player.instance.Punch();
             
         }
         if (Input.GetKeyDown(KeyCode.K) || Input.GetMouseButtonDown(1)) {
-            Debug.Log("shoot");
             //sw.next_Animation_For_Prince("Prince_Throw");
             Player.instance.LaunchProjectile();
-        }
+        } */
     }
 }
 

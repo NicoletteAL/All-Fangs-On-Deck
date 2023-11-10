@@ -10,11 +10,13 @@ public class RangedEnemy : Enemy
 
     public GameObject proj;
     public Transform spawner;
+    public Ranged_Enemy_Anim_Switcher rangedSW;
 
     public bool isShooting = false;
 
     void FixedUpdate()
     {
+        //TODO: Add jump when colliding with a table
         switch (currentState)
         {
             default:
@@ -37,6 +39,9 @@ public class RangedEnemy : Enemy
     {
        moveSpeed = DEFAULT_MSPEED;
        
+       rangedSW.next_Animation_For_Skelly("Skelly_Arms_Run");
+       rangedSW.next_Animation_For_Skelly("Skelly_Run");
+
        float positionX = transform.position.x - Player.instance.transform.position.x;
        Vector2 direction = new Vector2(positionX, 0);
 
@@ -50,15 +55,25 @@ public class RangedEnemy : Enemy
        }
     }
 
+    public void Idle()
+    {
+        moveSpeed = 0;
+        rangedSW.next_Animation_For_Skelly("Skelly_Arms_Idle");
+        rangedSW.next_Animation_For_Skelly("Skelly_Legs_Idle");
+    }
+
+
     public void Shoot()
     {
         moveSpeed = 0.75f;
 
         if (!isShooting)
         {
+            rangedSW.next_Animation_For_Skelly("Skelly_Throw");
+
             var q = Quaternion.AngleAxis(20.0f, Vector3.up);
-            GameObject projectile = Instantiate(proj, spawner.transform.position, q);
-        
+            GameObject projectile = Instantiate(proj, spawner.transform.position, q);  //spawner.transform.position
+            
             StartCoroutine(Delay());
         }
     }

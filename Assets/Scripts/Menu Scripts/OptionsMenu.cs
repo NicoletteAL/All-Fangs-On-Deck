@@ -91,7 +91,7 @@ public class OptionsMenu : MonoBehaviour
         }
     }
 
-    private void SetFullscreen(bool isFullscreen)
+    public void SetFullscreen(bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
 
@@ -129,6 +129,10 @@ public class OptionsMenu : MonoBehaviour
     {
         float volume = MasterSlider.value;
         myAudioMixer.SetFloat("MasterSlider",Mathf.Log10(volume)*20);
+    }
+
+    public void ShowControls() { // Have a control list
+
     }
         
 }

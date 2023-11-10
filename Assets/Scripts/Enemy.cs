@@ -30,13 +30,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         playerHealth = Player.instance.GetComponent<PlayerHealth>();
-        currentState = State.Follow;
-    }
-
-    public virtual void Idle()
-    {
-        Debug.Log("In idle state");
-        moveSpeed = 0.0f;
+        currentState = State.Idle;
     }
 
     public virtual void OnTriggerEnter2D(Collider2D col)

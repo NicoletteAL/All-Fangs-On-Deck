@@ -17,9 +17,9 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
-  - 
-  - 
+  - PlayerProjectile
+  - EnemyProjectile
+  - Enemy
   - 
   - 
   - 
@@ -51,4 +51,7 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 1748374131
+    locked: 0
+  - name: tilemap
+    uniqueID: 681998581
     locked: 0

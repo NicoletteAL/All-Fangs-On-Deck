@@ -32,7 +32,7 @@ public class Coin : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Collision!");
+        //Debug.Log("Collision!");
         if(other.GetComponent<creature>() != null)
         {
             Destroy(this.gameObject);
