@@ -26,7 +26,14 @@ public class WinMenu : MonoBehaviour
     }
 
     public void TitleScreen(){
-        Debug.Log("click");
+        ChangeScene(0);   
+    }
+
+    public void Restart() {
+        ChangeScene(1);
+    }
+
+    void ChangeScene(int index) {
         if(changingScenes){
             return;
         }
@@ -36,9 +43,8 @@ public class WinMenu : MonoBehaviour
         IEnumerator ChangeSceneRoutine(){
             imageFader.FadeToBlack();
             yield return new WaitForSeconds(imageFader.fadeTime);
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(index);
             yield return null;
         }
-        
     }
 }
