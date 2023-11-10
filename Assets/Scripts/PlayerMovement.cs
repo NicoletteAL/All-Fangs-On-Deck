@@ -45,8 +45,8 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.Log("shoot");
             sw.next_Animation_For_Prince("Throw_Arms");
-           
             Player.instance.LaunchProjectile();
+           
             //garlicThrow();
         }
     }

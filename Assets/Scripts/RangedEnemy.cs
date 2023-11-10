@@ -55,11 +55,12 @@ public class RangedEnemy : Enemy
        }
     }
 
-    /*override Idle()
-       rangedSW.next_Animation_For_Skelly("Skelly_Arms_Idle");
-       rangedSW.next_Animation_For_Skelly("Skelly_Legs_Idle");
-
-    */
+    public void Idle()
+    {
+        moveSpeed = 0;
+        rangedSW.next_Animation_For_Skelly("Skelly_Arms_Idle");
+        rangedSW.next_Animation_For_Skelly("Skelly_Legs_Idle");
+    }
 
 
     public void Shoot()
@@ -72,7 +73,7 @@ public class RangedEnemy : Enemy
 
             var q = Quaternion.AngleAxis(20.0f, Vector3.up);
             GameObject projectile = Instantiate(proj, spawner.transform.position, q);  //spawner.transform.position
-        
+            
             StartCoroutine(Delay());
         }
     }

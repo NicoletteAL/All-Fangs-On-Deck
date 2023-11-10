@@ -37,6 +37,15 @@ public class MeleeEnemy : Enemy
             StartCoroutine(Delay());  
         }
     }
+
+    public void Idle()
+    {
+        moveSpeed = 0;
+        mSW.next_Animation_For_Zombie("Zombie_Idle_Arms");
+        mSW.next_Animation_For_Zombie("Zombie_Idle_Legs");
+
+
+    }
     
     public virtual void Move()
     {

@@ -487,7 +487,7 @@ MonoBehaviour:
   isAttacking: 0
   playerHealth: {fileID: 0}
   circleCollider2D: {fileID: 0}
-  currentState: 2
+  currentState: 1
   zSR: {fileID: 2646409584223598278}
   mSW: {fileID: 724455499919160233}
 --- !u!114 &724455499919160233
