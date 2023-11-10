@@ -22,8 +22,8 @@ public class HealthDisplay : MonoBehaviour
     {
         for(int i = 0; i < hearts.Length; i++)
         {
-            hearts[i].sprite = i < (playerHealth.currentHealth / 10) ? fullHeart : emptyHeart;
-            hearts[i].enabled = i < playerHealth.maxHealth;
+            //hearts[i].sprite = i < (playerHealth.currentHealth / 10) ? fullHeart : emptyHeart;
+          //  hearts[i].enabled = i < playerHealth.maxHealth;
         }    
     }
     
