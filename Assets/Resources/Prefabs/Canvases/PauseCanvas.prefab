@@ -1395,8 +1395,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5531448170671199667}
-        m_TargetAssemblyTypeName: VictoryOptionsMenu, Assembly-CSharp
-        m_MethodName: SetWindowedMode
+        m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
+        m_MethodName: ShowControls
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2084,7 +2084,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: FullScreen
+  m_Text: Fullscreen
 --- !u!1 &8773386090654447166
 GameObject:
   m_ObjectHideFlags: 0

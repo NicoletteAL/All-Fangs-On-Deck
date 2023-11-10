@@ -13,8 +13,8 @@ public class TitleOptions : OptionsMenu
     // Start is called before the first frame update
     void Start()
     {
-        fullCheck.enabled = false;
-        winCheck.enabled = true;
+        fullCheck.enabled = true;
+        winCheck.enabled = false;
     }
 
     // Update is called once per frame
