@@ -33,12 +33,6 @@ public class Enemy : MonoBehaviour
         currentState = State.Idle;
     }
 
-    public virtual void Idle()
-    {
-        Debug.Log("In idle state");
-        moveSpeed = 0.0f;
-    }
-
     public virtual void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Player")
