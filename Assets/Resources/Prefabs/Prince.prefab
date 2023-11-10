@@ -141,6 +141,10 @@ GameObject:
   - component: {fileID: 924899796202258501}
   - component: {fileID: 7184157928209902798}
   - component: {fileID: 513177001275655273}
+  - component: {fileID: 453926756175142796}
+  - component: {fileID: 5663765616541500492}
+  - component: {fileID: 1673556127891577879}
+  - component: {fileID: 9136150223488696103}
   m_Layer: 6
   m_Name: Prince
   m_TagString: Untagged
@@ -307,6 +311,67 @@ MonoBehaviour:
     m_Bits: 64
   sr: {fileID: 4242090658831542710}
   sw: {fileID: 924899796202258501}
+--- !u!114 &453926756175142796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4813625281825523192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69f69d61b5ea9334280bfad3e5ff23cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sw: {fileID: 924899796202258501}
+--- !u!114 &5663765616541500492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4813625281825523192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cbc3b9df94c956409a8cc8d4c071d6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 3748702962525376807, guid: 8fc580a27cc556a4da0d8896474fb650, type: 3}
+  melee: {fileID: 7481306874473997366, guid: 5f4f37bace4f9574dbb6b8983bdb9475, type: 3}
+  meleeSpawn: {fileID: 0}
+  shootSpawn: {fileID: 0}
+  health: {fileID: 0}
+--- !u!114 &1673556127891577879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4813625281825523192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd855b9b90cb5bc429fb247e09b98511, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 100
+  maxHealth: 100
+  loss: {fileID: 0}
+--- !u!114 &9136150223488696103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4813625281825523192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73327dba548c99946b8676136f0a3463, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: {fileID: 1673556127891577879}
+  emptyHeart: {fileID: 21300000, guid: 0d2b243554ce0e84493eb24371008777, type: 3}
+  fullHeart: {fileID: 21300000, guid: 24524bc6ea4441046b67127023542cad, type: 3}
+  hearts: []
 --- !u!1 &5280581422970428306
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -4468314984389007785}
   - component: {fileID: 2087128868105293974}
   - component: {fileID: 5827036964932353903}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Stake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ Rigidbody2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7481306874473997366}
   m_BodyType: 0
-  m_Simulated: 1
+  m_Simulated: 0
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -2951369646109636698}
   - component: {fileID: -8117175882325281272}
   - component: {fileID: -1612666442643787496}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Garlic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,12 +76,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3bbfc90a895ca9b4b918a5a52b3e77da, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3416e35112f847c40b47411e3466c75c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 10
+  right: 0
 --- !u!58 &-1612666442643787496
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -156,7 +157,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.0055996054, y: -0.07203983}
