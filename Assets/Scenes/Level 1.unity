@@ -1385,6 +1385,11 @@ MonoBehaviour:
   creature: {fileID: 0}
   smoothTime: 0.3
   zoomLevel: 5
+--- !u!20 &793553365 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 5258232394512154681, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+  m_PrefabInstance: {fileID: 4282262648926318351}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &835201102
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13629,6 +13634,66 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1815202408681350873, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 793553365}
+    - target: {fileID: 1815202408681350873, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+      propertyPath: m_RenderMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2469715656766825243, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2469715656766825243, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2469715656766825243, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 2469715656766825243, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 366.79703
+      objectReference: {fileID: 0}
+    - target: {fileID: 2469715656766825243, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1505
+      objectReference: {fileID: 0}
+    - target: {fileID: 2469715656766825243, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1505
+      objectReference: {fileID: 0}
+    - target: {fileID: 2469715656766825243, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.1505
+      objectReference: {fileID: 0}
+    - target: {fileID: 2469715656766825243, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.015384674
+      objectReference: {fileID: 0}
+    - target: {fileID: 2469715656766825243, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2469715656766825243, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2469715656766825243, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2469715656766825243, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 459.254
+      objectReference: {fileID: 0}
+    - target: {fileID: 2469715656766825243, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 211.22076
+      objectReference: {fileID: 0}
     - target: {fileID: 2706024422792840240, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
       propertyPath: m_Size.y
       value: 1.3605655
@@ -13825,6 +13890,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RequiredObjects
       objectReference: {fileID: 0}
+    - target: {fileID: 9124206126196811314, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 0}
@@ -13834,6 +13903,7 @@ PrefabInstance:
     - {fileID: 5975949549943789750, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
     m_RemovedGameObjects:
     - {fileID: 2531631605464989960, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+    - {fileID: 7745601845122697345, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7636876507997204862, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
       insertIndex: -1

@@ -32,6 +32,10 @@ public class Projectile : MonoBehaviour
 
     }
 
+    void OnBecameInvisible(){
+        Destroy(this.gameObject);
+    }
+
     void OnCollisionEnter2D(Collision2D col) {
         if (col.gameObject.tag == "Enemy") { // damage enemy
             Debug.Log("projectile collided");
