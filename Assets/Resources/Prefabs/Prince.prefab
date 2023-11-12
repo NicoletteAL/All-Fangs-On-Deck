@@ -200,7 +200,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3060492227353187207}
-  - component: {fileID: 6546215661743618679}
   - component: {fileID: 8284732481545856991}
   - component: {fileID: 6512760922262051572}
   - component: {fileID: 3649517221459587708}
@@ -231,25 +230,8 @@ Transform:
   m_Children:
   - {fileID: 6625418717339521425}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6546215661743618679
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3955411092815388547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec2c4c161571f4aa39c5ed57c6aedfe5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 0
-  maxHealth: 3
-  speed: 8
-  jumpForce: 35
-  creatureName: Engel
 --- !u!50 &8284732481545856991
 Rigidbody2D:
   serializedVersion: 4
@@ -370,7 +352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  jumpAmount: 4
+  jumpAmount: 15
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -405,7 +387,7 @@ MonoBehaviour:
   melee: {fileID: 7481306874473997366, guid: 5f4f37bace4f9574dbb6b8983bdb9475, type: 3}
   meleeSpawn: {fileID: 6102643229451783012}
   shootSpawn: {fileID: 6102643229451783012}
-  health: {fileID: 0}
+  health: {fileID: 8236348887035129834}
 --- !u!114 &8236348887035129834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -420,7 +402,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 100
   maxHealth: 100
-  loss: {fileID: 0}
 --- !u!114 &8391375352154492854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -447,6 +428,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  loss: {fileID: 0}
 --- !u!1 &3980899588223275753
 GameObject:
   m_ObjectHideFlags: 0

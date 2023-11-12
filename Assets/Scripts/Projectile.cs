@@ -36,12 +36,12 @@ public class Projectile : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    void OnCollisionEnter2D(Collision2D col) {
+    void OnTriggerEnter2D(Collider2D col) {
         if (col.gameObject.tag == "Enemy") { // damage enemy
             Debug.Log("projectile collided");
             col.gameObject.GetComponent<EnemyHealth>().TakeDamage(dmg);
+            Destroy(this.gameObject);
         }
-        Destroy(this.gameObject);
     }
 
     public void setDir(bool leftRight){

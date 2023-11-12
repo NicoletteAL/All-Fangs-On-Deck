@@ -6,7 +6,7 @@ public class PlayerHealth : MonoBehaviour
 {
     public int currentHealth;
     public int maxHealth;
-    public LoseMenu loss;
+    //public LoseMenu loss;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +24,7 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             Debug.Log("You died");
-            loss.DeathScreen();
+            //loss.DeathScreen();
         } else {
             currentHealth -= d;
         }
