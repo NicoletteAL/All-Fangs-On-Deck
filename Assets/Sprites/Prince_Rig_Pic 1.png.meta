@@ -108,7 +108,175 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Prince_Rig_Pic 1_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 64
+        width: 38
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4128efbedbc457e42baafdbcefa4e7d2
+      internalID: -479318763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prince_Rig_Pic 1_1
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 87
+        width: 47
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8385df7b662076641808b1740028ed9c
+      internalID: -1341270917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prince_Rig_Pic 1_2
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 44
+        width: 21
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e15cda667b4d774b9c97d609434c8bf
+      internalID: -79781383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prince_Rig_Pic 1_3
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 70
+        width: 186
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44af286a926516544a3da60a25de7e55
+      internalID: 681965611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prince_Rig_Pic 1_4
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 71
+        width: 39
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8041b54648068740b6f2ca623af9ae9
+      internalID: 600861171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prince_Rig_Pic 1_5
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 69
+        width: 61
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 239ef58494987ff41b28eb602601a888
+      internalID: -1520791876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prince_Rig_Pic 1_6
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 2
+        width: 35
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40f87b5af9cb97b44aa982eb3a3ab0de
+      internalID: 2140181548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prince_Rig_Pic 1_7
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 1
+        width: 59
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 650ba6f6c4d2a5a40afcb107e4f5826c
+      internalID: 1844789644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones:
@@ -911,7 +1079,15 @@ TextureImporter:
       boneIndex[2]: 0
       boneIndex[3]: 0
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Prince_Rig_Pic 1_0: -479318763
+      Prince_Rig_Pic 1_1: -1341270917
+      Prince_Rig_Pic 1_2: -79781383
+      Prince_Rig_Pic 1_3: 681965611
+      Prince_Rig_Pic 1_4: 600861171
+      Prince_Rig_Pic 1_5: -1520791876
+      Prince_Rig_Pic 1_6: 2140181548
+      Prince_Rig_Pic 1_7: 1844789644
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

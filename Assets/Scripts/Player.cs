@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public GameObject melee;
     public GameObject meleeSpawn;
     public GameObject shootSpawn;
+    public Animator animator;
 
     public PlayerHealth health;
 
@@ -47,8 +48,13 @@ public class Player : MonoBehaviour
         GameObject hit = Instantiate(melee, new Vector3(meleeSpawn.transform.position.x, meleeSpawn.transform.position.y, 0f), Quaternion.identity, meleeSpawn.transform);
         hit.transform.localScale = new Vector3(0.3f,0.3f,0.3f);
         hit.GetComponent<Hitbox>().setDir(right);
+        animator.SetTrigger("Attack");
         Destroy(hit, 0.25f);
     }
+
+  
+        
+    
 
     void OnTriggerEnter2D(Collider2D col)
     {
