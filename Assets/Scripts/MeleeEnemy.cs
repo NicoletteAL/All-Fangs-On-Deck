@@ -49,6 +49,8 @@ public class MeleeEnemy : Enemy
     {
         if (isClimbing == true)
         {
+            isClimbing = false;
+            transform.Translate(moveSpeed * Time.deltaTime * 0, 1.5f, 0);
             mSW.next_Animation_For_Zombie("Zombie_Table_Climb");
         } 
         else 
@@ -80,10 +82,11 @@ public class MeleeEnemy : Enemy
         isAttacking = false;
     }
 
-    public void OnCollisionEnter2D(Collision2D col)
+    void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.tag == "Table") 
         {
+            Debug.Log("climbing");
             isClimbing = true;
         }
     }
