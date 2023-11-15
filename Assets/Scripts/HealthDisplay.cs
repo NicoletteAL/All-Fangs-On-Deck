@@ -11,6 +11,8 @@ public class HealthDisplay : MonoBehaviour
     public Sprite fullHeart;
     public Image[] hearts; 
 
+    public LoseMenu loss;
+    
     void Awake()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -20,10 +22,19 @@ public class HealthDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         for(int i = 0; i < hearts.Length; i++)
         {
-            hearts[i].sprite = i < (playerHealth.currentHealth / 10) ? fullHeart : emptyHeart;
-            hearts[i].enabled = i < playerHealth.maxHealth;
+            if (playerHealth.currentHealth <= 0) 
+            {
+                hearts[i].enabled = false;
+                loss.DeathScreen();
+            } 
+            else
+            {
+                hearts[i].sprite = i < (playerHealth.currentHealth / 10) ? fullHeart : emptyHeart;
+                hearts[i].enabled = i < playerHealth.maxHealth;
+            }
         }    
     }
     

@@ -13,6 +13,7 @@ public class RangedEnemy : Enemy
     public Ranged_Enemy_Anim_Switcher rangedSW;
 
     public bool isShooting = false;
+    public bool isJumping = false;
 
     void FixedUpdate()
     {
@@ -39,8 +40,16 @@ public class RangedEnemy : Enemy
     {
        moveSpeed = DEFAULT_MSPEED;
        
-       rangedSW.next_Animation_For_Skelly("Skelly_Arms_Run");
-       rangedSW.next_Animation_For_Skelly("Skelly_Run");
+       if (isJumping) 
+       {
+            rangedSW.next_Animation_For_Skelly("Skelly_Jump_Arms");
+            rangedSW.next_Animation_For_Skelly("Skelly_Jump_Legs");
+       }
+       else 
+       {
+        rangedSW.next_Animation_For_Skelly("Skelly_Arms_Run");
+        rangedSW.next_Animation_For_Skelly("Skelly_Run");
+       }
 
        float positionX = transform.position.x - Player.instance.transform.position.x;
        Vector2 direction = new Vector2(positionX, 0);
@@ -55,11 +64,12 @@ public class RangedEnemy : Enemy
        }
     }
 
-    /*override Idle()
-       rangedSW.next_Animation_For_Skelly("Skelly_Arms_Idle");
-       rangedSW.next_Animation_For_Skelly("Skelly_Legs_Idle");
-
-    */
+    public void Idle()
+    {
+        moveSpeed = 0;
+        rangedSW.next_Animation_For_Skelly("Skelly_Arms_Idle");
+        rangedSW.next_Animation_For_Skelly("Skelly_Legs_Idle");
+    }
 
 
     public void Shoot()
@@ -72,7 +82,7 @@ public class RangedEnemy : Enemy
 
             var q = Quaternion.AngleAxis(20.0f, Vector3.up);
             GameObject projectile = Instantiate(proj, spawner.transform.position, q);  //spawner.transform.position
-        
+            
             StartCoroutine(Delay());
         }
     }
@@ -82,6 +92,14 @@ public class RangedEnemy : Enemy
         isShooting = true;
         yield return new WaitForSeconds(attackCooldown);
         isShooting = false;
+    }
+
+    public void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Table") 
+        {
+            isJumping = true;
+        }
     }
 
     public void OnTriggerStay2D(Collider2D col)

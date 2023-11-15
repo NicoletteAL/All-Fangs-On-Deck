@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1385728924157237191}
   - component: {fileID: 7271011435930423154}
   - component: {fileID: -8355344274742712265}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bone
   m_TagString: Projectile
   m_Icon: {fileID: 0}
@@ -171,3 +171,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df4ed109b8c34ea43a8aa14455678585, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dmg: 10

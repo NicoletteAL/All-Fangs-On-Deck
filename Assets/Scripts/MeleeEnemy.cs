@@ -6,7 +6,7 @@ public class MeleeEnemy : Enemy
 {
     public SpriteRenderer zSR;
     public Melee_Enemy_Anim_Switcher mSW;
-
+    public bool isClimbing = false;
 
     void FixedUpdate()
     {
@@ -37,13 +37,28 @@ public class MeleeEnemy : Enemy
             StartCoroutine(Delay());  
         }
     }
+
+    public void Idle()
+    {
+        moveSpeed = 0;
+        mSW.next_Animation_For_Zombie("Zombie_Idle_Arms");
+        mSW.next_Animation_For_Zombie("Zombie_Idle_Legs");
+    }
     
     public virtual void Move()
     {
-        mSW.next_Animation_For_Zombie("Zombie_Walk_Arms");
-        mSW.next_Animation_For_Zombie("Zombie_Walk_Legs");
+        if (isClimbing == true)
+        {
+            mSW.next_Animation_For_Zombie("Zombie_Table_Climb");
+        } 
+        else 
+        {
+            mSW.next_Animation_For_Zombie("Zombie_Walk_Arms");
+            mSW.next_Animation_For_Zombie("Zombie_Walk_Legs");
+        }
 
         Vector3 scale = transform.localScale;
+
         if (Player.instance.transform.position.x > transform.position.x)
         {
             scale.x = Mathf.Abs(scale.x) * -1;
@@ -65,15 +80,11 @@ public class MeleeEnemy : Enemy
         isAttacking = false;
     }
 
-    void OnCollisionEnter2D(Collision2D hit)
+    public void OnCollisionEnter2D(Collision2D col)
     {
-        //If the zombie collides with the table prop, they'd perform the climbing animation, followed by the walking animation when they're on the table.
-        if (hit.gameObject.tag == "Table") {
-            mSW.next_Animation_For_Zombie("Zombie_Table_Climb");
-           
-            mSW.next_Animation_For_Zombie("Zombie_Walk_Arms");
-            mSW.next_Animation_For_Zombie("Zombie_Walk_Legs");
-
+        if (col.gameObject.tag == "Table") 
+        {
+            isClimbing = true;
         }
     }
 
