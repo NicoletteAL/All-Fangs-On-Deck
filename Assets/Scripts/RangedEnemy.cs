@@ -47,8 +47,9 @@ public class RangedEnemy : Enemy
        }
        else 
        {
-        rangedSW.next_Animation_For_Skelly("Skelly_Arms_Run");
-        rangedSW.next_Animation_For_Skelly("Skelly_Run");
+            
+         rangedSW.next_Animation_For_Skelly("Skelly_Arms_Run");
+         rangedSW.next_Animation_For_Skelly("Skelly_Run");
        }
 
        float positionX = transform.position.x - Player.instance.transform.position.x;
@@ -123,8 +124,7 @@ public class RangedEnemy : Enemy
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, targetDistance);
     }
-    
-
+  
 
 
 }
