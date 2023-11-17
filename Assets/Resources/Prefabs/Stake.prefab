@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 815930790715977071}
   - component: {fileID: 1034595148950383909}
   - component: {fileID: -4468314984389007785}
-  - component: {fileID: 2087128868105293974}
   - component: {fileID: 5827036964932353903}
+  - component: {fileID: 3009395639359678826}
   m_Layer: 7
   m_Name: Stake
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,19 +132,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.4176207, y: 0.6095319}
   m_EdgeRadius: 0
---- !u!114 &2087128868105293974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7481306874473997366}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f038158de8edeb84e95d598f367dc652, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dmg: 5
 --- !u!50 &5827036964932353903
 Rigidbody2D:
   serializedVersion: 4
@@ -172,3 +159,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &3009395639359678826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7481306874473997366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f038158de8edeb84e95d598f367dc652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dmg: 5
