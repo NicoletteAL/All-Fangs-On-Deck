@@ -25,15 +25,20 @@ public class EnemyHealth : PlayerHealth
     {
         if (currentHealth <= 0)
         {
-            enemyDeath.pitch = Random.Range(1.1f,1.2f);
-            enemyDeath.Play();
+            if(enemyDeath != null) {
+                enemyDeath.pitch = Random.Range(1.1f,1.2f);
+                enemyDeath.Play();
+            }
             transform.position = new Vector3(100000,0,0);
             Destroy(gameObject,5.0f);
         }
         else
         {
-            enemyDamaged.pitch = Random.Range(1.1f,1.2f);
-            enemyDamaged.Play();
+            if(enemyDamaged != null) {
+                enemyDamaged.pitch = Random.Range(1.1f,1.2f);
+                enemyDamaged.Play();
+            }
+            
             currentHealth -= d;
         }
         StartCoroutine(FlashColor());
