@@ -18,8 +18,10 @@ public class Bat : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
+            GetComponent<AudioSource>().pitch = Random.Range(.9f,1.2f);
+            GetComponent<AudioSource>().Play();
             col.gameObject.GetComponent<PlayerHealth>().TakeDamage(dmg);
-            Destroy(gameObject);
+            transform.position = new Vector3(10000,0,0);
         }
         Destroy(gameObject, 5.0f);
     }
