@@ -40,8 +40,10 @@ public class RangedEnemy : Enemy
     {
        moveSpeed = DEFAULT_MSPEED;
        
-       if (isJumping) 
+       if (isJumping == true) 
        {
+            isJumping = false;
+            transform.Translate(moveSpeed * Time.deltaTime * 0, 1.5f, 0);
             rangedSW.next_Animation_For_Skelly("Skelly_Jump_Arms");
             rangedSW.next_Animation_For_Skelly("Skelly_Jump_Legs");
        }
@@ -113,6 +115,10 @@ public class RangedEnemy : Enemy
             {
                 currentState = State.Run;
                 Debug.Log("Running");
+            }
+            else if (distanceBetweenPlayer >= targetDistance + 3.0f)
+            {
+                currentState = State.Attack;
             }
         }
     }
