@@ -9,6 +9,10 @@ public class EnemyHealth : PlayerHealth
     private Color defaultColor;
     private float colorDelay = 0.15f;
 
+    public AudioSource enemyDeath;
+
+    public AudioSource enemyDamaged;
+
     void Start()
     {
         defaultColor = enemySprite.color;
@@ -21,10 +25,15 @@ public class EnemyHealth : PlayerHealth
     {
         if (currentHealth <= 0)
         {
-            Destroy(gameObject);
+            enemyDeath.pitch = Random.Range(1.1f,1.2f);
+            enemyDeath.Play();
+            transform.position = new Vector3(100000,0,0);
+            Destroy(gameObject,5.0f);
         }
         else
         {
+            enemyDamaged.pitch = Random.Range(1.1f,1.2f);
+            enemyDamaged.Play();
             currentHealth -= d;
         }
         StartCoroutine(FlashColor());

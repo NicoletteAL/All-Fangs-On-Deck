@@ -19,7 +19,9 @@ public class Bone : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
             col.gameObject.GetComponent<PlayerHealth>().TakeDamage(dmg);
-            Destroy(gameObject);
+            GetComponent<AudioSource>().pitch = Random.Range(.7f,1.2f);
+            GetComponent<AudioSource>().Play();
+            transform.position = new Vector3(100000,0,0);
         }
         Destroy(gameObject, 5.0f);
     }
