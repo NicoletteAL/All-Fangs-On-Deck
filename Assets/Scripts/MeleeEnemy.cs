@@ -8,9 +8,23 @@ public class MeleeEnemy : Enemy
     public Melee_Enemy_Anim_Switcher mSW;
     public bool isClimbing = false;
 
+    [SerializeField] private float distanceBetweenPlayer;
+
+    void Update()
+    {
+        distanceBetweenPlayer = distanceBetweenPlayer = Mathf.Abs(transform.position.x - Player.instance.transform.position.x);
+
+        if (distanceBetweenPlayer >= 3.0f)
+        {
+            currentState = State.Follow;
+        } else if (distanceBetweenPlayer < 1.5f)
+        {
+            currentState = State.Attack;
+        }
+    }
+
     void FixedUpdate()
     {
-        //Add idle()
         switch (currentState)
         {
             default:
@@ -23,7 +37,7 @@ public class MeleeEnemy : Enemy
             case State.Follow:
                 Move();
                 break;
-        }
+        } 
     }
 
     public void Attack()
@@ -82,6 +96,7 @@ public class MeleeEnemy : Enemy
         isAttacking = false;
     }
 
+
     void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.tag == "Table") 
@@ -91,10 +106,25 @@ public class MeleeEnemy : Enemy
         }
     }
 
+    public override void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Player")
+        {
+            currentState = State.Follow;
+        }
+    }
+
     public override void OnTriggerExit2D(Collider2D col)
     {
         moveSpeed = DEFAULT_MSPEED;
         base.OnTriggerExit2D(col);
     }
+
+    public override void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, distanceBetweenPlayer);
+    }
+
 
 }
