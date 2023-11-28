@@ -19836,6 +19836,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 967347222044204411}
     m_Modifications:
     - target: {fileID: 201592289086677636, guid: 8667977e498dcfe4483cde789580d317, type: 3}
+      propertyPath: speed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 201592289086677636, guid: 8667977e498dcfe4483cde789580d317, type: 3}
       propertyPath: jumpAmount
       value: 10
       objectReference: {fileID: 0}

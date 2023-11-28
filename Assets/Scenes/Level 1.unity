@@ -25620,6 +25620,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RequiredObjects
       objectReference: {fileID: 0}
+    - target: {fileID: 2063585065417799201, guid: 02e674f01e22f814a970d436ea300732, type: 3}
+      propertyPath: speed
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2682180148933185849, guid: 02e674f01e22f814a970d436ea300732, type: 3}
       propertyPath: animator
       value: 
