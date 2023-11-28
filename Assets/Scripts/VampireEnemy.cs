@@ -50,9 +50,10 @@ public class VampireEnemy : Enemy
             vampSW.next_Animation_For_Vamp("Vampire_Flight_Legs");
             vampSW.next_Animation_For_Vamp("Vampire_Flight_Arms");
        }
-       //need to make her fly
+        //need to make her fly      
        float positionX = transform.position.x - Player.instance.transform.position.x;
        Vector2 direction = new Vector2(positionX, 0);
+      
 
        if (isRunning)
        {
