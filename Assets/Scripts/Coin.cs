@@ -33,13 +33,13 @@ public class Coin : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         //Debug.Log("Collision!");
-        if(other.GetComponent<creature>() != null)
+        if (other.CompareTag("Player"))
         {
             Destroy(this.gameObject);
             IncrementScore();
             PlaySoundEffect();
-            
         }
+
 
     }
     void IncrementScore()
