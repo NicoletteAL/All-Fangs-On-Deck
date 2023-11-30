@@ -10,12 +10,15 @@ public class EnemyHealth : PlayerHealth
     private float colorDelay = 0.15f;
 
     public AudioSource enemyDeath;
-
     public AudioSource enemyDamaged;
+
+    public GameObject gameController;
+    public int enemyScoreValue = 100;
 
     void Start()
     {
         defaultColor = enemySprite.color;
+        gameController = GameObject.Find("GameController");
     }
 
     // Start is called before the first frame update
@@ -30,6 +33,7 @@ public class EnemyHealth : PlayerHealth
                 enemyDeath.Play();
             }
             transform.position = new Vector3(100000,0,0);
+            gameController.GetComponent<ScoreManager>().updateScore(enemyScoreValue);
             Destroy(gameObject,5.0f);
         }
         else
