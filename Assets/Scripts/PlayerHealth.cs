@@ -6,27 +6,45 @@ public class PlayerHealth : MonoBehaviour
 {
     public int currentHealth;
     public int maxHealth;
-    //public LoseMenu loss;
+
+    public SpriteRenderer playerSprite;
+    public Color damagedColor = new Color(1f, 0.5f, 0f, 1f);
+    public Color defaultColor;
+    public float colorDelay = 1f;
 
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = maxHealth;    
+        currentHealth = maxHealth;  
+        defaultColor = playerSprite.color;   
     }
 
-    public virtual void GainHealth(int h)
+    public void GainHealth(int h)
     {
-        currentHealth = (currentHealth + h > 100) ? 100 : currentHealth + h;
+        if (currentHealth + h > 100) 
+        {
+            currentHealth = 100;
+        } else {
+            currentHealth += h;
+        }
     }
 
-    public virtual void TakeDamage(int d)
+    public void TakeDamage(int d)
     {
+
         if (currentHealth <= 0)
         {
             Debug.Log("You died");
-            //loss.DeathScreen();
         } else {
             currentHealth -= d;
         }
+        StartCoroutine(FlashColor(damagedColor));
+    }
+
+    public IEnumerator FlashColor(Color c)
+    {
+        playerSprite.color = c;
+        yield return new WaitForSeconds(colorDelay);
+        playerSprite.color = defaultColor;
     }
 }

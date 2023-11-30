@@ -2365,6 +2365,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 100
   maxHealth: 100
+  playerSprite: {fileID: 792998124562700725}
+  gainColor: {r: 0.084590435, g: 1, b: 0, a: 0}
+  damagedColor: {r: 1, g: 0.12530687, b: 0, a: 1}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
+  colorDelay: 0.15
 --- !u!114 &4410418167305110842
 MonoBehaviour:
   m_ObjectHideFlags: 0

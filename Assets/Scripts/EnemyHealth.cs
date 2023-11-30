@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealth : PlayerHealth
+public class EnemyHealth : MonoBehaviour
 {
+    public int currentHealth;
+    public int maxHealth;
+
     public SpriteRenderer enemySprite;
-    public Color damagedColor = new Color(1f, 0.5f, 0f, 1f);
-    private Color defaultColor;
-    private float colorDelay = 0.15f;
+    public Color damagedC = new Color(1f, 0.5f, 0f, 1f);
+    public Color defaultC;
+    public float delay = 0.15f;
 
     public AudioSource enemyDeath;
     public AudioSource enemyDamaged;
@@ -17,14 +20,11 @@ public class EnemyHealth : PlayerHealth
 
     void Start()
     {
-        defaultColor = enemySprite.color;
+        defaultC = enemySprite.color;
         gameController = GameObject.Find("GameController");
     }
 
-    // Start is called before the first frame update
-    public override void GainHealth(int h) {}
-
-    public override void TakeDamage(int d)
+    public void TakeDamage(int d)
     {
         if (currentHealth <= 0)
         {
@@ -50,9 +50,9 @@ public class EnemyHealth : PlayerHealth
 
     private IEnumerator FlashColor()
     {
-        enemySprite.color = damagedColor;
-        yield return new WaitForSeconds(colorDelay);
-        enemySprite.color = defaultColor;
+        enemySprite.color = damagedC;
+        yield return new WaitForSeconds(delay);
+        enemySprite.color = defaultC;
     }
     
 }

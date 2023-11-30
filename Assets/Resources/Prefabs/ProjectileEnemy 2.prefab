@@ -294,9 +294,13 @@ MonoBehaviour:
   currentHealth: 20
   maxHealth: 20
   enemySprite: {fileID: 6404179451967004622}
-  damagedColor: {r: 0.8867924, g: 0.26045188, b: 0.24679601, a: 1}
+  damagedC: {r: 1, g: 0.098604865, b: 0, a: 1}
+  defaultC: {r: 0, g: 0, b: 0, a: 0}
+  delay: 0.15
   enemyDeath: {fileID: 6921587640621014744}
   enemyDamaged: {fileID: 7688068925277478745}
+  gameController: {fileID: 0}
+  enemyScoreValue: 100
 --- !u!82 &6921587640621014744
 AudioSource:
   m_ObjectHideFlags: 0
