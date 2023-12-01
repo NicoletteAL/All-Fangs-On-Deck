@@ -54,7 +54,6 @@ public class OptionsMenu : MonoBehaviour
 
     void PauseGame()
     {
-        Debug.Log("Paused");
         Time.timeScale = 0f; // Freeze the game time
         isPaused = true;
         GetComponent<Canvas>().enabled = true; // Show the pause menu UI
@@ -62,7 +61,6 @@ public class OptionsMenu : MonoBehaviour
 
     public void ResumeGame()
     {
-        Debug.Log("Resumed");
         Time.timeScale = 1f; // Restore the game time
         isPaused = false;
         GetComponent<Canvas>().enabled = false;// Hide the pause menu UI
@@ -135,11 +133,9 @@ public class OptionsMenu : MonoBehaviour
 
     public void ShowControls() { // Have a control list
         controls.GetComponent<Canvas>().enabled = true;
-        Debug.Log("show");
     }
 
     public void HideControls() {
-        Debug.Log("show");
         controls.GetComponent<Canvas>().enabled = false;
     }
         

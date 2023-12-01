@@ -25085,6 +25085,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 084c7d306e916034b9f81d984b88fec1, type: 3}
+--- !u!1 &1995834239 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9044705095059223678, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+  m_PrefabInstance: {fileID: 5993555632716736859}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2035401598
 GameObject:
   m_ObjectHideFlags: 0
@@ -25731,6 +25736,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 129224231841898876, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+      propertyPath: meleeSpawn
+      value: 
+      objectReference: {fileID: 1995834239}
+    - target: {fileID: 129224231841898876, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+      propertyPath: shootSpawn
+      value: 
+      objectReference: {fileID: 1995834239}
     - target: {fileID: 1012379190628923513, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
       propertyPath: controls
       value: 

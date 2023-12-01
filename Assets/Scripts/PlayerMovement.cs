@@ -37,17 +37,13 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.J) || Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Melee");
             Player.instance.Punch();
 
         }
         if (Input.GetKeyDown(KeyCode.K) || Input.GetMouseButtonDown(1))
         {
-            //Debug.Log("shoot");
             sw.next_Animation_For_Prince("Throw_Arms");
             Player.instance.LaunchProjectile();
-           
-            //garlicThrow();
         }
     }
 
@@ -84,18 +80,4 @@ public class PlayerMovement : MonoBehaviour
     {
         sr.flipX = b;
     }
-    
-    /*
-    public void garlicThrow()
-    {
-
-        StartCoroutine(garlicThrowRoutine());
-
-        IEnumerator garlicThrowRoutine()
-        {
-            yield return new WaitForSeconds(2f);
-
-        }
-
-    } */
 }

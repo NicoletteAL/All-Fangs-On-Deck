@@ -24,12 +24,10 @@ public class Hitbox : MonoBehaviour
             Debug.Log("hit!");
             col.gameObject.GetComponent<EnemyHealth>().TakeDamage(dmg);
         }
-        
     }
 
     public void setDir(bool flip) { // invert bool, so right = 1->0
         sr = GetComponent<SpriteRenderer>();
         sr.flipX = !flip;
-        //Debug.Log(flip);
     }
 }

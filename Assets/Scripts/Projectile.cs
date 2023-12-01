@@ -16,7 +16,7 @@ public class Projectile : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        rb2d.AddForce(Vector2.up * 8, ForceMode2D.Impulse);
+        rb2d.AddForce(Vector2.up * 7, ForceMode2D.Impulse);
         if(right) {
             rb2d.AddForce(Vector2.right * 5, ForceMode2D.Impulse);
         }
@@ -38,7 +38,6 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col) {
         if (col.gameObject.tag == "Enemy") { // damage enemy
-            Debug.Log("projectile collided");
             col.gameObject.GetComponent<EnemyHealth>().TakeDamage(dmg);
             Destroy(this.gameObject);
         }
