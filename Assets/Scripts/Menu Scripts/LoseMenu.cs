@@ -14,17 +14,18 @@ public class LoseMenu : MonoBehaviour
     void Start()
     {
         hp = Player.instance.GetComponent<PlayerHealth>().currentHealth;
-        GetComponent<Canvas>().enabled = false;// Start with the pause menu UI hidden
+        GetComponent<Canvas>().enabled = false;// Start with the lose menu UI hidden
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (hp <= 0) {
+            DeathScreen();
+        }
     }
 
     public void DeathScreen() {
-        Time.timeScale = 0f; // Freeze the game time
         GetComponent<Canvas>().enabled = true; // Show the pause menu UI
     }
 

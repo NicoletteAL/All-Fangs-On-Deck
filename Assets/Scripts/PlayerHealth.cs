@@ -35,6 +35,7 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             Debug.Log("You died");
+            //LoseMenu.DeathScreen();
         } else {
             currentHealth -= d;
         }

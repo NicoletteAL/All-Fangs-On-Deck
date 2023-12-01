@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class OptionsMenu : MonoBehaviour
 {
     public GameObject pauseMenuUI; // Reference to the pause menu UI game object
+    public GameObject controls; // Reference to the control menu UI game object
     private bool isPaused = false; // Flag to track if the game is paused
     //public AudioMixer myAudioMixer;
 
@@ -30,6 +31,7 @@ public class OptionsMenu : MonoBehaviour
     void Start()
     {
         GetComponent<Canvas>().enabled = false;// Start with the pause menu UI hidden
+        controls.GetComponent<Canvas>().enabled = false;
         mainCamera = Camera.main;
         //GetComponent<Canvas>().enabled = false;
     }
@@ -132,7 +134,11 @@ public class OptionsMenu : MonoBehaviour
     }
 
     public void ShowControls() { // Have a control list
+        controls.GetComponent<Canvas>().enabled = true;
+    }
 
+    public void HideControls() {
+        controls.GetComponent<Canvas>().enabled = false;
     }
         
 }

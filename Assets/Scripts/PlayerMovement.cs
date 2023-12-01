@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.K) || Input.GetMouseButtonDown(1))
         {
-            Debug.Log("shoot");
+            //Debug.Log("shoot");
             sw.next_Animation_For_Prince("Throw_Arms");
             Player.instance.LaunchProjectile();
            

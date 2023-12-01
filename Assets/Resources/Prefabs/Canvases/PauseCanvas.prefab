@@ -1525,7 +1525,7 @@ RectTransform:
   - {fileID: 8282792509682062203}
   - {fileID: 5334207096577312005}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1577,7 +1577,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &1473881042817885368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1608,6 +1608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 5708038252782549912}
+  controls: {fileID: 944237438437602811, guid: 27d725c607536a14787853887e1f518c, type: 3}
   myAudioMixer: {fileID: 24100000, guid: 888a2abd55f44477fba05727cf053acc, type: 2}
   MasterSlider: {fileID: 4185828653390794291}
   MusicSlider: {fileID: 8997970657235372804}

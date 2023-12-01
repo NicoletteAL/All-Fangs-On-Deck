@@ -22,15 +22,9 @@ public class Player : MonoBehaviour
 
     void Update() {
         if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) { //determine spawn position and projectile direction
-            /*
-            shootSpawn.transform.position = new Vector2(transform.position.x + 1.5f, shootSpawn.transform.position.y);
-            meleeSpawn.transform.position = new Vector2(transform.position.x + 1.5f, meleeSpawn.transform.position.y);*/
             right = true;
         }
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) {
-            /*
-            shootSpawn.transform.position = new Vector2(transform.position.x - 1.5f, shootSpawn.transform.position.y);
-            meleeSpawn.transform.position = new Vector2(transform.position.x - 1.5f, meleeSpawn.transform.position.y);*/
             right = false;
         }
         

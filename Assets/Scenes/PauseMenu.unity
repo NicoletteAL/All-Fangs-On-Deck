@@ -601,6 +601,10 @@ PrefabInstance:
       propertyPath: m_Text
       value: Fullscreen
       objectReference: {fileID: 0}
+    - target: {fileID: 6424172596775009674, guid: 447b1f1822371af41a76f8102e270727, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8074308864842902041, guid: 447b1f1822371af41a76f8102e270727, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

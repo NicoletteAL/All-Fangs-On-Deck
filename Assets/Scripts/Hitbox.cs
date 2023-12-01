@@ -19,7 +19,7 @@ public class Hitbox : MonoBehaviour
 
     }
 
-    void OnCollisionEnter2D(Collision2D col) {
+    void OnTriggerEnter2D(Collider2D col) {
         if (col.gameObject.tag == "Enemy") { // damage enemy
             Debug.Log("hit!");
             col.gameObject.GetComponent<EnemyHealth>().TakeDamage(dmg);
@@ -30,6 +30,6 @@ public class Hitbox : MonoBehaviour
     public void setDir(bool flip) { // invert bool, so right = 1->0
         sr = GetComponent<SpriteRenderer>();
         sr.flipX = !flip;
-        Debug.Log(flip);
+        //Debug.Log(flip);
     }
 }
