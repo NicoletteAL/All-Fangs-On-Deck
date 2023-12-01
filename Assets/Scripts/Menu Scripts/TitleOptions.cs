@@ -13,6 +13,7 @@ public class TitleOptions : OptionsMenu
     // Start is called before the first frame update
     void Start()
     {
+        controls.GetComponent<Canvas>().enabled = false;
         fullCheck.enabled = true;
         winCheck.enabled = false;
     }

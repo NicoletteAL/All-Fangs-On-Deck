@@ -135,9 +135,11 @@ public class OptionsMenu : MonoBehaviour
 
     public void ShowControls() { // Have a control list
         controls.GetComponent<Canvas>().enabled = true;
+        Debug.Log("show");
     }
 
     public void HideControls() {
+        Debug.Log("show");
         controls.GetComponent<Canvas>().enabled = false;
     }
         
