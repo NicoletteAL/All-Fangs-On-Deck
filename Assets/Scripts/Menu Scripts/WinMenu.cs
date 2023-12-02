@@ -9,6 +9,8 @@ public class WinMenu : MonoBehaviour
 {
     public ImageFader imageFader;
     bool changingScenes = false;
+
+    public GameObject gameController;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +32,7 @@ public class WinMenu : MonoBehaviour
     }
 
     public void Restart() {
+        Destroy(gameController);
         ChangeScene(1);
     }
 

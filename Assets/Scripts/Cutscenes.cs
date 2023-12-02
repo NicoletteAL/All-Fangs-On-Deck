@@ -8,12 +8,14 @@ public class Cutscenes : MonoBehaviour
 {
     public Image[] cutscenes;
     public int i = 0;
+    private Scene currentScene;
 
     // Start is called before the first frame update
     void Start()
     {
+        currentScene = SceneManager.GetActiveScene();
         cutscenes[0].enabled = true;
-        for(int i=1; i < 5; i++)
+        for(int i=1; i < cutscenes.Length; i++)
         {
             cutscenes[i].enabled = false;
         }
@@ -21,14 +23,22 @@ public class Cutscenes : MonoBehaviour
 
     public void onClick()
     {
-        if (i <= 3) 
+        cutscenes[i-1].enabled = false;
+        i += 1;
+
+        if (i < cutscenes.Length) 
         {
-            i += 1;
-            cutscenes[i-1].enabled = false;
             cutscenes[i].enabled = true;
         } else {
-            SceneManager.LoadScene("Level 1");
+            if (currentScene.name == "Cutscene1")
+            {
+                SceneManager.LoadScene("Level 1");
+            } else if (currentScene.name == "Cutscene2")
+            {
+                SceneManager.LoadScene("WinScreen");
+            }
         }
 
+        
     }
 }

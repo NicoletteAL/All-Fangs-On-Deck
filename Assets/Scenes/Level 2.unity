@@ -4351,9 +4351,49 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3657664438402009043, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657664438402009043, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5261065235878901193, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5261065235878901193, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5261065235878901193, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5520632884208924841, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
       propertyPath: m_Name
       value: RequiredObjects
+      objectReference: {fileID: 0}
+    - target: {fileID: 5553078112631646217, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5553078112631646217, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994879956970993296, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994879956970993296, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994879956970993296, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15708,7 +15748,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 203549972310419322, guid: 1672a212389f69547a29323381b36e4d, type: 3}
       propertyPath: nextScene
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3714056076093288810, guid: 1672a212389f69547a29323381b36e4d, type: 3}
       propertyPath: m_RootOrder
@@ -17978,7 +18018,9 @@ MonoBehaviour:
   currentHealth: 100
   maxHealth: 100
   enemySprite: {fileID: 2042540075}
-  damagedColor: {r: 0.9056604, g: 0.3343142, b: 0.32894266, a: 1}
+  damagedC: {r: 1, g: 0.5, b: 0, a: 1}
+  defaultC: {r: 0, g: 0, b: 0, a: 0}
+  delay: 0.15
   enemyDeath: {fileID: 0}
   enemyDamaged: {fileID: 0}
   gameController: {fileID: 0}
