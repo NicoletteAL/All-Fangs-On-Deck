@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Cutscenes : MonoBehaviour
 {
     public Image[] cutscenes;
-    public int i = 0;
+    public int i = 1;
     private Scene currentScene;
 
     // Start is called before the first frame update
@@ -23,22 +23,23 @@ public class Cutscenes : MonoBehaviour
 
     public void onClick()
     {
-        cutscenes[i-1].enabled = false;
-        i += 1;
-
-        if (i < cutscenes.Length) 
+        if (i < cutscenes.Length - 1)
         {
+            i += 1;
+            cutscenes[i - 1].enabled = false;
+            
             cutscenes[i].enabled = true;
-        } else {
+        }
+        else
+        {
             if (currentScene.name == "Cutscene1")
             {
                 SceneManager.LoadScene("Level 1");
-            } else if (currentScene.name == "Cutscene2")
+            }
+            else if (currentScene.name == "Cutscene2")
             {
                 SceneManager.LoadScene("WinScreen");
             }
         }
-
-        
     }
 }
