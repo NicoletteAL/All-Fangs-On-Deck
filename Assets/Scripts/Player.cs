@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
 
     public PlayerHealth health;
 
+    public AudioSource playerHeal;
+
     bool right = true;
 
     void Awake() {
@@ -58,8 +60,11 @@ public class Player : MonoBehaviour
             case "Item":
                 if (health.currentHealth != health.maxHealth)
                 {
+                    playerHeal.pitch = Random.Range(.9f,1.2f);
+                    playerHeal.Play();
                     health.GainHealth(50); //temp value
-                    Destroy(col.gameObject);
+                    colObject.transform.position = new Vector3(100000,0,0);
+                    Destroy(col.gameObject,5.0f);
                 }
                 break;
             case "Checkpoint":

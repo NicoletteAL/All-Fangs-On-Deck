@@ -22,7 +22,11 @@ public class Hitbox : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col) {
         if (col.gameObject.tag == "Enemy") { // damage enemy
             Debug.Log("hit!");
-            col.gameObject.GetComponent<EnemyHealth>().TakeDamage(dmg);
+            if(col.gameObject.GetComponent<EnemyHealth>() != null) {
+                GetComponent<AudioSource>().pitch = Random.Range(.7f,1.2f);
+                GetComponent<AudioSource>().Play();
+                col.gameObject.GetComponent<EnemyHealth>().TakeDamage(dmg);
+            }
         }
     }
 
