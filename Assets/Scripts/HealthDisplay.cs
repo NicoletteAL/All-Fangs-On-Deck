@@ -33,19 +33,13 @@ public class HealthDisplay : MonoBehaviour
                 
                 hearts[i].enabled = false;
                 Destroy(MusicOne);
-                
                 loss.DeathScreen();
-                
-
-
+                LossScreen.Play();
             } 
             else
             {
-                
                 hearts[i].sprite = i < (playerHealth.currentHealth / 10) ? fullHeart : emptyHeart;
-                hearts[i].enabled = i < playerHealth.maxHealth;
-                LossScreen.Play();
-                
+                hearts[i].enabled = i < playerHealth.maxHealth;   
             }
         }    
     }
