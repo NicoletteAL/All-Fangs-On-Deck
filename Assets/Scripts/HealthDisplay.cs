@@ -10,6 +10,8 @@ public class HealthDisplay : MonoBehaviour
     public Sprite emptyHeart;
     public Sprite fullHeart;
     public Image[] hearts; 
+    public GameObject MusicOne;
+   
 
     public LoseMenu loss;
     
@@ -28,7 +30,12 @@ public class HealthDisplay : MonoBehaviour
             if (playerHealth.currentHealth <= 0) 
             {
                 hearts[i].enabled = false;
+                Destroy(MusicOne);
+                
                 loss.DeathScreen();
+                
+
+
             } 
             else
             {

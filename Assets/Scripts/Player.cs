@@ -45,7 +45,7 @@ public class Player : MonoBehaviour
     public void Punch(){
        GameObject hit = Instantiate(melee, new Vector3(meleeSpawn.transform.position.x, meleeSpawn.transform.position.y, 0f), Quaternion.identity, meleeSpawn.transform);
       hit.transform.localScale = new Vector3(0.5f,0.3f,0.5f);
-       hit.GetComponent<Hitbox>().setDir(right);
+        hit.GetComponent<Hitbox>().setDir(right);
         
         animator.SetTrigger("Attack");
         Destroy(hit, 0.25f);

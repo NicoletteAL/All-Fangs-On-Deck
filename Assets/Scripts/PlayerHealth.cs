@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -36,7 +35,7 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             Debug.Log("You died");
-            //SceneManager.LoadScene (sceneName:"LoseScreen");
+            //LoseMenu.DeathScreen();
         } else {
             currentHealth -= d;
         }
