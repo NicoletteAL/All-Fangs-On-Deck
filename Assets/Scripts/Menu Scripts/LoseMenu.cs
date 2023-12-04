@@ -10,7 +10,8 @@ public class LoseMenu : MonoBehaviour
     int hp;
     public ImageFader imageFader;
     bool changingScenes = false;
-    public GameObject DeathMusic;
+    public AudioSource LossScreen;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -27,8 +28,11 @@ public class LoseMenu : MonoBehaviour
     }
 
     public void DeathScreen() {
+        LossScreen.Play();
         GetComponent<Canvas>().enabled = true; // Show the pause menu UI
-        //DeathMusic.GetComponent<AudioSource>.Play();
+        
+        Debug.Log("dead");
+        
     }
 
     public void TitleScreen(){
