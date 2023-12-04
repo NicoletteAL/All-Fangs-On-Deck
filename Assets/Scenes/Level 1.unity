@@ -1109,12 +1109,12 @@ AudioSource:
   m_GameObject: {fileID: 509491787}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7198866911020910201, guid: 888a2abd55f44477fba05727cf053acc, type: 2}
   m_audioClip: {fileID: 8300000, guid: 6ed92ba1d1c60b44c94021f661f6f631, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.699
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -25723,6 +25723,26 @@ PrefabInstance:
       propertyPath: princeAnimate
       value: 
       objectReference: {fileID: 1663682621}
+    - target: {fileID: 3403440001565951225, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3403440001565951225, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3403440001565951225, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3403440001565951225, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3403440001565951225, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: LoseMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 3657664438402009043, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

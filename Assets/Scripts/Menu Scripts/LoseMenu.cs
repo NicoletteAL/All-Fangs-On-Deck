@@ -10,7 +10,7 @@ public class LoseMenu : MonoBehaviour
     int hp;
     public ImageFader imageFader;
     bool changingScenes = false;
-    public AudioSource LossScreen;
+    public HealthDisplay LossScreen; 
     
     // Start is called before the first frame update
     void Start()
@@ -28,7 +28,7 @@ public class LoseMenu : MonoBehaviour
     }
 
     public void DeathScreen() {
-        LossScreen.Play();
+        
         GetComponent<Canvas>().enabled = true; // Show the pause menu UI
         
         Debug.Log("dead");
@@ -51,6 +51,8 @@ public class LoseMenu : MonoBehaviour
         
     }
 
+   
+
     public void Retry() {
         Time.timeScale = 1f; // Restore the game time
         Player.instance.GetComponent<PlayerHealth>().currentHealth = hp;
@@ -60,6 +62,7 @@ public class LoseMenu : MonoBehaviour
             yield return new WaitForSeconds(imageFader.fadeTime);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             yield return null;
+            Destroy(LossScreen);
         }
     }
 }
