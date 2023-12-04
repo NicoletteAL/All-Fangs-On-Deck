@@ -227,6 +227,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: HideControls
       objectReference: {fileID: 0}
+    - target: {fileID: 6115633271098698257, guid: 27d725c607536a14787853887e1f518c, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9086213753225300511, guid: 27d725c607536a14787853887e1f518c, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -378,7 +382,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6.545664
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
