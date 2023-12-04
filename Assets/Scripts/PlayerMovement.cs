@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement")]
     public float speed = 3f;
     public float jumpAmount = 4f;
+    
 
     Rigidbody2D rb2d;
 
@@ -17,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     public SpriteRenderer sr;
     public Character_animation_switch sw;
+    public Animator princeAnimate;
 
     // Start is called before the first frame update
     void Start()
@@ -30,20 +32,41 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && grounded)
         {
             sw.next_Animation_For_Prince("Jump_Arms");
+            //princeAnimate.SetBool("Jump", true);
             sw.next_Animation_For_Prince("Jump_Legs");
 
             rb2d.AddForce(Vector2.up * jumpAmount, ForceMode2D.Impulse);
+        }
+        if(isGrounded())
+        {
+            princeAnimate.SetBool("Jump",false);
+        }
+        else
+        {
+            princeAnimate.SetBool("Jump",true);
         }
 
         if (Input.GetKeyDown(KeyCode.J) || Input.GetMouseButtonDown(0))
         {
             Player.instance.Punch();
+            princeAnimate.SetTrigger("Attack");
 
         }
+        if (Input.GetKeyUp(KeyCode.J) || Input.GetMouseButtonDown(0))
+        {
+            //princeAnimate.SetTrigger("Attack", false);
+        }
+
         if (Input.GetKeyDown(KeyCode.K) || Input.GetMouseButtonDown(1))
         {
             sw.next_Animation_For_Prince("Throw_Arms");
+            princeAnimate.SetTrigger("Range");
             Player.instance.LaunchProjectile();
+        }
+
+        if (Input.GetKeyUp(KeyCode.K) || Input.GetMouseButtonDown(1))
+        {
+            //princeAnimate.SetTrigger("Range", false);
         }
     }
 
@@ -57,12 +80,15 @@ public class PlayerMovement : MonoBehaviour
         {
             //animation run
             sw.next_Animation_For_Prince("Run_Arms");
+            princeAnimate.SetBool("Run", true);
             sw.next_Animation_For_Prince("Run_Legs");
+            
             Flip(pos.x > 0);
         }
         else 
         {
             sw.next_Animation_For_Prince("Idle_Arms");
+            princeAnimate.SetBool("Run", false);
             sw.next_Animation_For_Prince("Idle_Legs");
         }
     }

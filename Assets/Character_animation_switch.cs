@@ -24,7 +24,7 @@ public class Character_animation_switch : MonoBehaviour
             return;
         }
 
-        maintenant = moving;
+        //maintenant = moving;
 
         princeAnimate.Play(moving);
         

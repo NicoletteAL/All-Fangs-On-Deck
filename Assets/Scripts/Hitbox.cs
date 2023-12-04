@@ -32,6 +32,7 @@ public class Hitbox : MonoBehaviour
 
     public void setDir(bool flip) { // invert bool, so right = 1->0
         sr = GetComponent<SpriteRenderer>();
+   
         sr.flipX = !flip;
     }
 }

@@ -13,7 +13,8 @@ public class LoseMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        hp = Player.instance.GetComponent<PlayerHealth>().currentHealth;
+       hp = Player.instance.GetComponent<PlayerHealth>().currentHealth;
+       
         GetComponent<Canvas>().enabled = false;// Start with the lose menu UI hidden
     }
 

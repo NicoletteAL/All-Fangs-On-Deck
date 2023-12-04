@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public GameObject meleeSpawn;
     public GameObject shootSpawn;
     public Animator animator;
+    
 
     public PlayerHealth health;
 
@@ -25,6 +26,7 @@ public class Player : MonoBehaviour
     void Update() {
         if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) { //determine spawn position and projectile direction
             right = true;
+            
         }
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) {
             right = false;
@@ -41,12 +43,14 @@ public class Player : MonoBehaviour
     }
 
     public void Punch(){
-        GameObject hit = Instantiate(melee, new Vector3(meleeSpawn.transform.position.x, meleeSpawn.transform.position.y, 0f), Quaternion.identity, meleeSpawn.transform);
-        hit.transform.localScale = new Vector3(0.5f,0.3f,0.5f);
-        hit.GetComponent<Hitbox>().setDir(right);
+       GameObject hit = Instantiate(melee, new Vector3(meleeSpawn.transform.position.x, meleeSpawn.transform.position.y, 0f), Quaternion.identity, meleeSpawn.transform);
+      hit.transform.localScale = new Vector3(0.5f,0.3f,0.5f);
+       hit.GetComponent<Hitbox>().setDir(right);
+        
         animator.SetTrigger("Attack");
         Destroy(hit, 0.25f);
     }
+   
 
   
         

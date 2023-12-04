@@ -23962,6 +23962,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8545000281843620628, guid: 14ed857176d0f42cc96dbf29d40bb3f8, type: 3}
   m_PrefabInstance: {fileID: 1658192702}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1663682621 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8686797389796540923, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+  m_PrefabInstance: {fileID: 5993555632716736859}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1702884997
 GameObject:
   m_ObjectHideFlags: 0
@@ -25507,6 +25512,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3135106488235328007, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+      propertyPath: princeAnimate
+      value: 
+      objectReference: {fileID: 1663682621}
     - target: {fileID: 3657664438402009043, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
