@@ -25777,7 +25777,7 @@ PrefabInstance:
     - target: {fileID: 4410418167305110842, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
       propertyPath: LossScreen
       value: 
-      objectReference: {fileID: 1663682632}
+      objectReference: {fileID: 509491793}
     - target: {fileID: 4410418167305110842, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
       propertyPath: MusicDeath
       value: 
