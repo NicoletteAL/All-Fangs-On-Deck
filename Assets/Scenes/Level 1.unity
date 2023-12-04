@@ -24174,6 +24174,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1663682635 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4410418167305110842, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+  m_PrefabInstance: {fileID: 5993555632716736859}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621259144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73327dba548c99946b8676136f0a3463, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1702884997
 GameObject:
   m_ObjectHideFlags: 0
@@ -25758,7 +25769,7 @@ PrefabInstance:
     - target: {fileID: 4150281629394926196, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
       propertyPath: LossScreen
       value: 
-      objectReference: {fileID: 509491793}
+      objectReference: {fileID: 1663682635}
     - target: {fileID: 4410418167305110842, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
       propertyPath: MusicOne
       value: 
