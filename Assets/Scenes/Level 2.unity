@@ -4375,6 +4375,14 @@ PrefabInstance:
       propertyPath: LossScreen
       value: 
       objectReference: {fileID: 1086453572}
+    - target: {fileID: 4410418167305110842, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+      propertyPath: MusicOne
+      value: 
+      objectReference: {fileID: 2125771591}
+    - target: {fileID: 4410418167305110842, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+      propertyPath: LossScreen
+      value: 
+      objectReference: {fileID: 2141510805}
     - target: {fileID: 5261065235878901193, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -18870,6 +18878,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2125771591 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4510144253005654005, guid: 306dc904b218d4690bbb413bb90af491, type: 3}
+  m_PrefabInstance: {fileID: 1086453570}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2130400569
 PrefabInstance:
   m_ObjectHideFlags: 0
